@@ -1,0 +1,133 @@
+<div class="container mt-4">
+  <h2 class="mb-3 text-center text-primary">📋 Inventario de Ganado</h2>
+
+  <div class="table-responsive shadow-lg p-3 bg-white rounded">
+    <table class="table table-striped table-hover table-bordered align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>#</th>
+          <th>Raza</th>
+          <th>Sexo</th>
+          <th>Edad (meses)</th>
+          <th>Peso (kg)</th>
+          <th>Precio/Kg ($)</th>
+          <th>Total Precio ($)</th>
+          <th>Estado de Salud</th>
+          <th>Propósito</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of ganado$ | async; let i = index" class="text-center">
+          <td>{{ i + 1 }}</td>
+          <td>{{ animal.raza }}</td>
+          <td>{{ animal.sexo }}</td>
+          <td>{{ animal.edad }}</td>
+          <td>{{ animal.peso }}</td>
+          <td>{{ animal.precioPorKilo | currency:'USD' }}</td>
+          <td>{{ animal.totalPrecio | currency:'USD' }}</td>
+          <td>
+            <span class="badge px-3 py-2" [ngClass]="{
+              'bg-success': animal.estadoSalud === 'Sano',
+              'bg-warning': animal.estadoSalud === 'En tratamiento',
+              'bg-danger': animal.estadoSalud === 'Enfermo'
+            }">
+              {{ animal.estadoSalud }}
+            </span>
+          </td>
+          <td>{{ animal.proposito }}</td>
+          <td>
+            <button class="btn btn-outline-primary btn-sm me-1" (click)="seleccionarGanado(animal)">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button class="btn btn-outline-danger btn-sm" (click)="eliminarGanado(animal.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="(ganado$ | async)?.length === 0">
+          <td colspan="10" class="text-center text-muted">No hay datos disponibles.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Sección Total Precio General -->
+  <div class="mt-3 text-end pe-3">
+    <h4 class="fw-bold text-primary">💰 Total Precio General: {{ totalPrecioGeneral | currency:'USD' }}</h4>
+  </div>
+
+  <div class="card mt-4 shadow-lg">
+    <div class="card-header bg-primary text-white text-center">
+      <h4>{{ modoEdicion ? '✏️ Editar Ganado' : '➕ Agregar Nuevo Ganado' }}</h4>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="modoEdicion ? guardarEdicion() : agregarGanado()">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">🐂 Raza:</label>
+            <input type="text" class="form-control" [(ngModel)]="modoEdicion ? ganadoEditando.raza : nuevoGanado.raza" name="raza" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">🚻 Sexo:</label>
+            <select class="form-select" [(ngModel)]="modoEdicion ? ganadoEditando.sexo : nuevoGanado.sexo" name="sexo">
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">📅 Edad (meses):</label>
+            <input type="number" class="form-control" [(ngModel)]="modoEdicion ? ganadoEditando.edad : nuevoGanado.edad" 
+                   [value]="(modoEdicion ? ganadoEditando.edad : nuevoGanado.edad) || 0" 
+                   name="edad" required>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-4">
+            <label class="form-label">⚖️ Peso (kg):</label>
+            <input type="number" class="form-control" [(ngModel)]="modoEdicion ? ganadoEditando.peso : nuevoGanado.peso" 
+                   [value]="(modoEdicion ? ganadoEditando.peso : nuevoGanado.peso) || 0" 
+                   name="peso" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">💰 Precio por Kilo ($):</label>
+            <input type="number" class="form-control" [(ngModel)]="modoEdicion ? ganadoEditando.precioPorKilo : nuevoGanado.precioPorKilo" 
+                   [value]="(modoEdicion ? ganadoEditando.precioPorKilo : nuevoGanado.precioPorKilo) || 0" 
+                   name="precioPorKilo" required>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">🏥 Estado de Salud:</label>
+            <select class="form-select" [(ngModel)]="modoEdicion ? ganadoEditando.estadoSalud : nuevoGanado.estadoSalud" name="estadoSalud">
+              <option value="Sano">Sano</option>
+              <option value="Enfermo">Enfermo</option>
+              <option value="En tratamiento">En tratamiento</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-3 mt-2">
+          <div class="col-md-6">
+            <label class="form-label">🎯 Propósito:</label>
+            <select class="form-select" [(ngModel)]="modoEdicion ? ganadoEditando.proposito : nuevoGanado.proposito" name="proposito">
+              <option value="Engorde">Engorde</option>
+              <option value="Leche" [disabled]="(modoEdicion ? ganadoEditando.sexo : nuevoGanado.sexo) === 'Macho'">Leche</option>
+              <option value="Reproducción">Reproducción</option>
+              <option value="Venta">Venta</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-3 text-center">
+          <button type="submit" class="btn btn-success"
+                  [disabled]="(modoEdicion ? ganadoEditando.sexo : nuevoGanado.sexo) === 'Macho' && (modoEdicion ? ganadoEditando.proposito : nuevoGanado.proposito) === 'Leche'">
+            {{ modoEdicion ? '💾 Guardar Cambios' : '✅ Agregar Ganado' }}
+          </button>
+          <button *ngIf="modoEdicion" (click)="cancelarEdicion()" type="button" class="btn btn-secondary ms-2">
+            ❌ Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <legend class="h3 text-center titulo-naranja d-flex align-items-center justify-content-center">
+    <img src="assets/fotos/vaca-ia.png" alt="Vaca IA" width="50" height="50" class="me-2">
+    ASISTENTE GANADERO IA
+  </legend>  
+  <div class="chat-box">
+    <div class="messages">
+      <p *ngIf="isLoading" class="loading">⏳ Cargando...</p>
+      <div *ngIf="aiResponse" class="response">
+        <p>
+          <strong>
+            <img src="assets/fotos/robot-ia.png" alt="Ganado AI" width="40" height="40">
+            Ganado AI:
+          </strong>
+        </p>
+        <p>{{ aiResponse }}</p>
+      </div>
+    </div>
+    <div class="input-container">
+      <textarea [(ngModel)]="userInput" placeholder="Pregunta sobre el ganado..."></textarea>
+      <button (click)="sendMessage()" [disabled]="!userInput.trim()">Generar Respuesta</button>
+    </div>
+  </div>
+</div>

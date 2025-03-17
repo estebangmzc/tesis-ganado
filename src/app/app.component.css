@@ -1,0 +1,11 @@
+body, html {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  main {
+    flex: 1; /* Hace que el contenido principal se empuje hacia abajo */
+    margin-top: 80px; /* Ajusta según la altura del menú */
+  }
+  

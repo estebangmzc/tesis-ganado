@@ -1,0 +1,128 @@
+.chat-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.85); /* Menos transparencia */
+    backdrop-filter: blur(5px); /* Suaviza el fondo sin ser tan fuerte */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Caja del chat */
+.chat-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+/* Mensajes de la IA */
+.response {
+    background: rgba(255, 255, 255, 0.8); /* Más opaco */
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor del input */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilizar el textarea */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    resize: none;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9); /* Casi sólido */
+}
+
+/* Botón de enviar estilo IA */
+button {
+    width: 55%; /* Un poco más ancho */
+    max-width: 280px; /* Ligero aumento */
+    padding: 16px 20px; /* Más alto y con más espacio en los lados */
+    background: linear-gradient(135deg, #e76f51, #d65c40);
+    border: none;
+    border-radius: 14px; /* Bordes más suaves */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px; /* Texto más visible */
+    transition: all 0.3s ease-in-out;
+    color: white;
+    box-shadow: 0px 5px 18px rgba(231, 111, 81, 0.5);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Brillo futurista */
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320%;
+    height: 320%;
+    background: radial-gradient(circle, rgba(231, 111, 81, 0.5) 0%, rgba(0, 0, 0, 0) 80%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.9;
+}
+
+/* Efecto al hacer hover */
+button:hover {
+    background: linear-gradient(135deg, #e86a52, #c8513a);
+    transform: scale(1.07);
+    box-shadow: 0px 7px 22px rgba(231, 111, 81, 0.6);
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 3px 12px rgba(231, 111, 81, 0.4);
+}
+
+/* Títulos */
+.titulo-naranja {
+    color: black !important;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Imagen del título */
+.titulo-naranja img {
+    width: 50px;
+    height: 50px;
+}

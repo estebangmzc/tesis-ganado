@@ -1,0 +1,94 @@
+/* Estilos generales del menú */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f8f9fa; /* Color claro y moderno */
+    padding: 12px 24px; /* 🔹 Altura ajustada */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 
+                0 6px 14px rgba(0, 0, 0, 0.15); /* 🔹 Sombra interna y externa */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px; /* Bordes más suaves */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto de flotación al pasar el mouse sobre el menú */
+.menu:hover {
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.12), 
+                0 10px 18px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px); /* 🔹 Elevación sutil */
+}
+
+/* Botones dentro del menú */
+.menu button {
+    background-color: white;
+    color: #333;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    padding: 12px 22px; /* 🔹 Ajustado para que no se vean enormes */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
+    font-weight: 500;
+}
+
+/* Efecto hover en los botones */
+.menu button:hover {
+    background: linear-gradient(to bottom, #ffffff, #f1f1f1);
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #aaa;
+}
+
+/* Efecto de clic */
+.menu button:active {
+    transform: translateY(2px);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón activo */
+.menu button.active {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border-color: #007bff;
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Botón logout */
+.logout-button {
+    color: #e74c3c;
+    font-weight: bold;
+    border-color: #e74c3c;
+}
+
+/* Efecto flotante en el navbar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px; /* 🔹 Altura reducida */
+    background-color: #f8f9fa;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 
+                0 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto flotante en el navbar al pasar el mouse */
+nav:hover {
+    box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.12), 
+                0 12px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-3px);
+}

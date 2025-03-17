@@ -1,0 +1,151 @@
+/* Estilos generales del contenedor del login */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.3); /* Blanco translúcido */
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+  text-align: center;
+  width: 460px;
+  color: white;
+  animation: fadeIn 0.8s ease-in-out;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de neón blanco */
+.login-container:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 
+              0 0 25px rgba(255, 255, 255, 0.7), 
+              0 0 35px rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Sombra interna para mayor profundidad */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  z-index: -1;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -55%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Título con efecto neón */
+.login-container h2 {
+  font-family: 'Rye', cursive;
+  font-size: 32px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  animation: neonGlow 1.5s infinite alternate;
+}
+
+/* Efecto de brillo en el título */
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+  font-size: 18px;
+  outline: none;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.login-container input:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Botones */
+.login-container button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(231, 111, 81, 0.85);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 10px;
+}
+
+.login-container button:hover {
+  background: rgba(212, 95, 69, 0.9);
+  transform: scale(1.07);
+  box-shadow: 0 0 15px rgba(212, 95, 69, 0.9);
+}
+
+/* Botón de Google */
+.login-container .google-button {
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: black !important;
+}
+
+.login-container .google-button:hover {
+  background: rgba(241, 241, 241, 0.9) !important;
+}
+
+/* Texto de registro */
+.register-text {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.register-link {
+  color: #3369ff; /* Azul claro */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.register-link:hover {
+  color: #445caa; /* Azul aún más claro */
+  text-decoration: underline;
+}
+
+/* Notificaciones */
+.success-snackbar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #F44336;
+  color: white;
+}

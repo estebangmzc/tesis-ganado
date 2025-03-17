@@ -1,0 +1,186 @@
+/* Evita que la página principal haga scroll cuando el modal está abierto */
+body.modal-open {
+    overflow: hidden;
+    width: 100vw; /* Evita que se genere scroll lateral */
+    position: fixed; /* Asegura que la página no se mueva */
+}
+
+/* Modal de registro con fondo negro translúcido */
+.register-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6); /* Negro translúcido */
+    backdrop-filter: blur(8px);
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Sombra más elegante */
+    text-align: center;
+    width: 100%;
+    max-width: 550px;
+    color: #f5f5f5; /* Texto más claro para mejor contraste */
+    animation: fadeIn 0.8s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil pero moderno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    max-height: 90vh;
+    box-sizing: border-box;
+}
+
+/* Efecto de resplandor más elegante */
+.register-container:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 
+                0 0 25px rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* Sombra interna para mayor profundidad */
+.register-container::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 23px;
+    z-index: -1;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Título con efecto neón */
+.register-container h2 {
+    font-family: 'Rye', cursive;
+    font-size: 34px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: none;
+    font-weight: bold;
+    animation: neonGlow 1.5s infinite alternate;
+}
+
+/* Efecto de brillo en el título */
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    }
+}
+
+/* Estilos de los inputs */
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    font-size: 18px;
+    outline: none;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.register-container input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Contenedor de botones alineados horizontalmente */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 10px;
+}
+
+/* Estilo general de los botones */
+.register-container button {
+    width: 150px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+
+/* Botón "Registrar" */
+.register-container button[type="submit"] {
+    background: rgba(231, 111, 81, 0.85);
+    color: white;
+    width: 150px; /* 2px más pequeño */
+    padding: 14px; /* Ajustado para mantener proporciones */
+    border-radius: 8px; /* Más compacto */
+}
+
+.register-container button[type="submit"]:hover {
+    background: rgba(212, 95, 69, 0.9);
+    transform: translateY(-2px) scale(1.05); /* Se mueve un poco hacia arriba */
+    box-shadow: 0 0 12px rgba(212, 95, 69, 0.9);
+}
+
+/* Botón "Cancelar" */
+.register-container .cancel-btn {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    width: 150px; /* 2px más pequeño */
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.register-container .cancel-btn:hover {
+    background-color: rgba(241, 241, 241, 0.9);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Asegurar que el contenedor permita que los botones crezcan sin cortarse */
+.register-container {
+    overflow: visible;
+}
+
+/* Evita el scroll dentro del formulario en pantallas pequeñas */
+.register-container form {
+    max-height: 80vh;
+    overflow-y: hidden;
+}
+
+/* Mejoras en responsividad */
+@media (max-width: 480px) {
+    .register-container {
+        width: 95%;
+        padding: 30px;
+        max-width: 450px;
+    }
+
+    .register-container h2 {
+        font-size: 28px;
+    }
+
+    .register-container input {
+        font-size: 16px;
+    }
+
+    .register-container button {
+        font-size: 18px;
+    }
+}
