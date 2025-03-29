@@ -11,7 +11,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--light-color);
-  color: var(----secondary-color);
+  color: black;
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -90,7 +90,6 @@ body {
   background-color: darkred;
 }
 
-/* Estilo botones export*/
 /* Estilos generales de los botones */
 .custom-btn {
   background-color: rgba(0, 0, 0, 0.05); /* Ligero tono gris */
@@ -194,6 +193,167 @@ button:disabled,
   font-weight: bold;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
   white-space: nowrap;
+}
+
+/* Fondo oscuro transparente detrás del modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Contenedor del modal personalizado */
+.custom-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  max-width: 90%;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Título del modal */
+.custom-modal-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Input dentro del modal */
+.custom-modal-input {
+  width: calc(100% - 16px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Contenedor de botones */
+.custom-modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Estilos de los botones */
+.custom-modal-buttons button {
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+
+/* Botón cancelar (rojo) */
+.custom-modal-buttons .btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.custom-modal-buttons .btn-danger:hover {
+  background: #c82333;
+}
+
+/* Botón guardar (verde) */
+.custom-modal-buttons .btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.custom-modal-buttons .btn-success:hover {
+  background: #218838;
+}
+
+/* Animación de aparición del modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-tooltip {
+  background-color: rgba(0, 0, 0, 0.8) !important; /* Fondo oscuro */
+  color: white !important; /* Texto blanco */
+  padding: 6px 10px !important;
+  border-radius: 8px !important; /* Bordes redondeados */
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+/* Ajuste para el triángulo del tooltip */
+.custom-tooltip .mat-mdc-tooltip-panel {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espacio entre botones */
+  padding: 15px; /* Más espacio alrededor de los botones */
+}
+
+/* Estilos generales de los botones */
+.modal-footer button {
+  padding: 12px 20px; /* Botones más grandes */
+  font-size: 1rem; /* Texto más legible */
+  border-radius: 10px; /* Bordes más redondeados */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Espacio entre icono y texto */
+}
+
+/* Botón Cancelar en Rojo */
+.modal-footer .btn-secondary {
+  background-color: #dc3545; /* Rojo */
+  color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #c82333; /* Rojo más oscuro */
+}
+
+/* Botón Guardar en Verde */
+.modal-footer .btn-primary {
+  background-color: #28a745; /* Verde */
+  color: white;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #218838; /* Verde más oscuro */
+}
+
+/* Iconos dentro de los botones */
+.modal-footer .btn-secondary::before {
+  content: "✖"; /* Icono X */
+}
+
+.modal-footer .btn-primary::before {
+  content: "✔"; /* Icono Check */
 }
 
 #video-fondo {

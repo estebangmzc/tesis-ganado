@@ -1,0 +1,27 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+        <h2>Editar Perfil</h2>
+
+        <form (ngSubmit)="guardarCambios()">
+            <label for="name">Nombre:</label>
+            <input id="name" type="text" [(ngModel)]="userData.name" name="name" />
+
+            <label for="phone">Teléfono:</label>
+            <input id="phone" type="text" [(ngModel)]="userData.phone" name="phone" />
+
+            <label for="farmName">Nombre de la finca:</label>
+            <input id="farmName" type="text" [(ngModel)]="userData.farmName" name="farmName" />
+
+            <label for="birthDate">Fecha de nacimiento:</label>
+            <input id="birthDate" type="date" [(ngModel)]="userData.birthDate" name="birthDate" />
+
+            <!-- Mensaje de error general -->
+            <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+            <div class="botones">
+                <button type="submit">Guardar</button>
+                <button type="button" (click)="cerrarModal()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>

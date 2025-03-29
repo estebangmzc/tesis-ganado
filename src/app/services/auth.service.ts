@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, inject } from '@angular/core';
 import { 
   Auth, 
   signInWithEmailAndPassword, 
@@ -14,62 +14,148 @@ import {
 } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Firestore, doc, setDoc, getDoc, updateDoc, onSnapshot } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private usuarioActual: User | null = null;
+  private firestore = inject(Firestore);
 
-  constructor(private auth: Auth, private router: Router, private ngZone: NgZone) {
+  constructor(
+    private auth: Auth, 
+    private router: Router, 
+    private ngZone: NgZone
+  ) {
     onAuthStateChanged(this.auth, (user) => {
       this.usuarioActual = user;
+      this.auth.languageCode = 'es';
     });
   }
 
-  // LOGIN: Verifica si el correo está confirmado antes de permitir el acceso
+  getUserData(uid: string): Observable<any> {
+    return new Observable(observer => {
+      const userDocRef = doc(this.firestore, 'usuarios', uid);
+      const unsubscribe = onSnapshot(userDocRef, (docSnap) => {
+        observer.next(docSnap.exists() ? docSnap.data() : null);
+      });
+      return () => unsubscribe();
+    });
+  }
+
+  async updateUserData(uid: string, newData: any): Promise<void> {
+    const userDocRef = doc(this.firestore, 'usuarios', uid);
+    try {
+      await updateDoc(userDocRef, newData);
+      console.log("✅ Datos del usuario actualizados correctamente");
+    } catch (error) {
+      console.error("❌ Error al actualizar datos del usuario:", error);
+      throw error;
+    }
+  }
+
+  getCurrentUser(): Observable<User | null> {
+    return new Observable(observer => {
+      return onAuthStateChanged(this.auth, user => {
+        observer.next(user);
+      });
+    });
+  }
+
+  async sendVerificationEmail(user: User): Promise<void> {
+    if (!user) return;
+    try {
+      await sendEmailVerification(user, {
+        url: 'https://inventario-ganado-38a26.firebaseapp.com?lang=es', 
+        handleCodeInApp: true
+      });      
+      console.log("✅ Correo de verificación enviado en español.");
+    } catch (error) {
+      console.error("❌ Error al enviar verificación:", error);
+    }
+  }  
+
+  async register(email: string, password: string, extraData: any) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
+      
+      await this.sendVerificationEmail(userCredential.user);
+      
+      const userDocRef = doc(this.firestore, `usuarios/${userCredential.user.uid}`);
+      await setDoc(userDocRef, {
+        email,
+        ...extraData
+      });
+
+      return userCredential;
+    } catch (error) {
+      throw error;
+    }
+  }
   async login(email: string, password: string) {
     try {
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
       const user = userCredential.user;
 
       if (!user.emailVerified) {
-        throw new Error('auth/email-not-verified');
+        await sendEmailVerification(user);
+        throw { code: 'auth/email-not-verified' };
+      }
+
+      const userRef = doc(this.firestore, 'usuarios', user.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
+          name: user.displayName || "Usuario sin nombre",
+          birthDate: "",
+          phone: "",
+          farmName: "",
+          email: user.email,
+          uid: user.uid,
+          createdAt: new Date()
+        });
       }
 
       this.ngZone.run(() => this.router.navigate(['/main']));
       return user;
     } catch (error: any) {
+      console.error('Firebase Auth Error:', error);
       throw new Error(this.getFirebaseErrorMessage(error.code));
     }
-  }
+  }  
 
-  // REGISTRO: Envía correo de verificación
-  async register(email: string, password: string) {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-      const user = userCredential.user;
-      await sendEmailVerification(user);
-      throw new Error('auth/email-verification-sent');
-    } catch (error: any) {
-      throw new Error(this.getFirebaseErrorMessage(error.code));
-    }
-  }
-
-  // LOGIN CON GOOGLE (No requiere verificación de correo)
   async loginWithGoogle() {
     try {
       const provider = new GoogleAuthProvider();
       const userCredential = await signInWithPopup(this.auth, provider);
+      const user = userCredential.user;
+      if (!user) throw new Error("Error en la autenticación con Google.");
+
+      const userRef = doc(this.firestore, 'usuarios', user.uid);
+      const docSnap = await getDoc(userRef);
+
+      if (!docSnap.exists()) {
+        await setDoc(userRef, {
+          name: user.displayName || "Usuario de Google",
+          birthDate: "",
+          phone: "",
+          farmName: "",
+          email: user.email,
+          uid: user.uid,
+          createdAt: new Date()
+        });
+      }
+
       this.ngZone.run(() => this.router.navigate(['/main']));
-      return userCredential.user;
+      return user;
     } catch (error: any) {
-      console.error("Error en Firebase Auth:", error);
+      console.error("Error en login con Google:", error);
       throw new Error("Ocurrió un error desconocido. Intenta nuevamente.");
     }
-  }
+  }  
 
-  // CERRAR SESIÓN
   async logout() {
     try {
       await signOut(this.auth);
@@ -79,52 +165,42 @@ export class AuthService {
     }
   }
 
-  // OBTENER USUARIO ACTUAL
-  getCurrentUser(): User | null {
-    return this.auth.currentUser;
+  async getUserId(): Promise<string | null> {
+    return new Promise((resolve, reject) => {
+      onAuthStateChanged(this.auth, user => resolve(user ? user.uid : null), reject);
+    });
   }
 
-  // OBTENER UID DEL USUARIO (VERSIÓN CORREGIDA)
-async getUserId(): Promise<string | null> {
-  return new Promise((resolve, reject) => {
-    onAuthStateChanged(this.auth, (user) => {
-      resolve(user ? user.uid : null);
-    }, reject);
-  });
-}
-
-  // REESTABLECER CONTRASEÑA
   async resetPassword(email: string) {
-    await sendPasswordResetEmail(this.auth, email);
-  }
+    try {
+      await sendPasswordResetEmail(this.auth, email);
+    } catch (error: any) {
+      throw new Error(this.getFirebaseErrorMessage(error.code));
+    }
+  }  
 
-  // ACTUALIZAR PERFIL (Nombre y foto)
   async updateProfile(name: string, photoURL: string) {
     if (this.usuarioActual) {
       await updateProfile(this.usuarioActual, { displayName: name, photoURL: photoURL });
     }
   }
 
-  // OBSERVAR CAMBIOS EN LA AUTENTICACIÓN
   getAuthState(): Observable<User | null> {
     return new Observable(observer => {
-      onAuthStateChanged(this.auth, user => observer.next(user));
+      return onAuthStateChanged(this.auth, user => observer.next(user));
     });
-  }
+  }  
 
-  // CONVERTIR ERRORES DE FIREBASE A MENSAJES CLAROS
   private getFirebaseErrorMessage(errorCode: string): string {
     const errorMessages: { [key: string]: string } = {
-      'auth/invalid-email': 'El correo no es válido.',
-      'auth/user-not-found': 'No se encontró ninguna cuenta con este correo.',
+      'auth/user-not-found': 'No se encontró una cuenta con este correo.',
       'auth/wrong-password': 'Contraseña incorrecta.',
-      'auth/email-not-verified': 'Debes verificar tu correo antes de iniciar sesión.',
-      'auth/email-already-in-use': 'Este correo ya está en uso.',
+      'auth/email-already-in-use': 'Este correo ya está registrado.',
+      'auth/invalid-email': 'Correo electrónico no válido.',
       'auth/weak-password': 'La contraseña es demasiado débil.',
-      'auth/too-many-requests': 'Demasiados intentos fallidos. Inténtalo más tarde.',
-      'auth/network-request-failed': 'Error de conexión. Revisa tu internet.',
+      'auth/email-not-verified': 'Debes verificar tu correo.',
+      'auth/too-many-requests': 'Demasiados intentos fallidos. Inténtalo más tarde.'
     };
-
-    return errorMessages[errorCode] || 'Ocurrió un error desconocido. Intenta nuevamente.';
+    return errorMessages[errorCode] || 'Ocurrió un error al iniciar sesión.';
   }
 }

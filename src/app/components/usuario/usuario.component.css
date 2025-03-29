@@ -1,0 +1,147 @@
+/* Contenedor principal del usuario */
+.usuario-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    max-width: 650px;
+    height: 65vh; /* Reducido de 75vh a 65vh */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 🔹 Evita que los botones se empujen abajo */
+}
+
+/* Contenedor del botón */
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px; /* 🔹 Reduce el margen superior para subir los botones */
+    gap: 20px;
+}
+
+/* Encabezado del usuario */
+.usuario-header {
+    font-size: 22px; /* 🔹 Aumentado para mayor presencia */
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'TuFuente', sans-serif;
+}
+
+/* Imagen dentro del título */
+.usuario-header img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Contenedor de información */
+.usuario-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 🔹 Centra verticalmente la info */
+    gap: 10px; /* 🔹 Espacio entre líneas más amplio */
+    overflow-y: auto;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* 🔹 Centra el texto */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Cada línea de información */
+.usuario-info p {
+    margin: 6px 0;
+    font-size: 18px; /* 🔹 Letras más grandes y legibles */
+}
+
+/* Contenedor del botón */
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto; /* 🔹 Empuja los botones hacia abajo */
+    padding-bottom: 30px; /* 🔹 Evita que se peguen al borde */
+    gap: 20px;
+}
+
+/* Estilo general de los botones */
+button {
+    width: 45%;
+    max-width: 220px;
+    padding: 12px 16px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #e76f51, #d65c40);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    box-shadow: 0px 4px 12px rgba(231, 111, 81, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brillo futurista reducido */
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(231, 111, 81, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+}
+
+/* Efecto hover */
+button:hover {
+    background: linear-gradient(135deg, #e86a52, #c8513a);
+    transform: scale(1.02);
+    box-shadow: 0px 5px 15px rgba(231, 111, 81, 0.5);
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0px 2px 8px rgba(231, 111, 81, 0.3);
+}
+
+/* Estilo del título */
+.titulo-naranja {
+    font-family: 'Rye', cursive;
+    color: black !important;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

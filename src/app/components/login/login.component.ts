@@ -29,34 +29,41 @@ export class LoginComponent {
 
   async login() {
     this.clearMessages();
-
+  
     if (!this.isValidEmail(this.email)) {
       this.setErrorMessage('Por favor, ingresa un correo válido.');
       return;
     }
-
+  
     if (!this.password) {
       this.setErrorMessage('La contraseña no puede estar vacía.');
       return;
     }
-
+  
     try {
-      const user: User | null = await this.authService.login(this.email, this.password);
-
+      const user = await this.authService.login(this.email, this.password);
+  
       if (user) {
         if (!user.emailVerified) {
-          this.setErrorMessage('Debes verificar tu correo antes de iniciar sesión.');
+          this.setErrorMessage('Tu correo no está verificado. Hemos enviado un nuevo correo de verificación.');
+          await this.authService.sendVerificationEmail(user); // ✅ Pasamos el usuario
           return;
-        }
-
+        }        
+  
         this.setSuccessMessage('Inicio de sesión exitoso. Redirigiendo...');
         setTimeout(() => this.router.navigate(['/main']), 2000);
       }
     } catch (error: any) {
-      console.error("Error completo:", error);
-      this.setErrorMessage(error.message); // ✅ Ahora solo muestra el mensaje de error correctamente
+      console.error("Error en el login:", error);
+      if (error.code === 'auth/user-not-found') {
+        this.setErrorMessage('No se encontró una cuenta con este correo.');
+      } else if (error.code === 'auth/wrong-password') {
+        this.setErrorMessage('La contraseña es incorrecta.');
+      } else {
+        this.setErrorMessage(error.message);
+      }
     }
-  }
+  }  
 
   async loginWithGoogle() {
     this.clearMessages();

@@ -1,0 +1,33 @@
+<div class="usuario-container">
+    <div *ngIf="loading" class="response">Cargando datos...</div>
+    <div *ngIf="!loading && user" class="usuario-info">
+        <br>
+        <h2 class="usuario-header titulo-naranja">
+            <img src="assets/fotos/usuario.png" alt="Usuario" width="50" height="50" class="me-2">
+            Bienvenido, {{ user.displayName || 'Usuario' }}
+        </h2>        
+        <p><strong>Email:</strong> {{ user.email }}</p>
+
+        <div *ngIf="userData" class="response">
+            <h3>Información Adicional</h3>
+            <p><strong>Nombre:</strong> {{ userData.name }}</p>
+            <p *ngIf="userData.phone"><strong>Teléfono:</strong> {{ userData.phone }}</p>
+            <p *ngIf="userData.farmName"><strong>Finca:</strong> {{ userData.farmName }}</p>
+            <p *ngIf="userData.birthDate"><strong>Fecha de nacimiento:</strong> {{ userData.birthDate }}</p>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="boton-container">
+            <button (click)="openEditProfile()">✏️ Editar Perfil</button>
+            <button (click)="logout()">Cerrar Sesión</button>
+        </div>
+    </div>
+
+    <div *ngIf="!loading && !user" class="usuario-info response">
+        <p>No hay usuario autenticado.</p>
+        <a routerLink="/login">Iniciar sesión</a>
+    </div>
+</div>
+
+<!-- Modal de edición de perfil -->
+<app-editar-perfil *ngIf="mostrarModal" (cerrar)="closeEditProfile()"></app-editar-perfil>

@@ -1,0 +1,113 @@
+/* Contenedor principal de términos y condiciones */
+.terminos-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw;
+    max-width: 700px;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Título grande con el estilo especial */
+.titulo-naranja {
+    font-family: 'Rye', cursive;
+    color: black;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
+}
+
+/* Contenedor de los términos */
+.terminos-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Cada párrafo de los términos */
+.terminos-info p {
+    margin: 6px 0;
+}
+
+/* Contenedor del botón */
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+}
+
+/* Estilo general del botón */
+button {
+    width: 50%;
+    max-width: 240px;
+    padding: 12px 16px;
+    font-size: 15px;
+    background: linear-gradient(135deg, #e76f51, #d65c40);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    color: white;
+    box-shadow: 0px 4px 14px rgba(231, 111, 81, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brillo futurista reducido */
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(231, 111, 81, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.6;
+}
+
+/* Efecto hover */
+button:hover {
+    background: linear-gradient(135deg, #e86a52, #c8513a);
+    transform: scale(1.03);
+    box-shadow: 0px 6px 18px rgba(231, 111, 81, 0.5);
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 10px rgba(231, 111, 81, 0.3);
+}

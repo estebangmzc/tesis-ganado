@@ -5,20 +5,38 @@
       <legend class="h3 text-center titulo-naranja d-flex align-items-center justify-content-center">
         <img src="assets/fotos/vaca-inventario.png" alt="Vaca Inventario" width="60" height="60" class="me-2">
         AGREGAR NUEVO GANADO
-    </legend>         
+      </legend>
 
       <div class="mb-3">
         <label class="form-label">🐂 Raza:</label>
-        <select class="form-select" [(ngModel)]="nuevoGanado.raza" name="raza" required #raza="ngModel" [class.is-invalid]="raza.invalid && raza.touched">
+        <select class="form-select" [(ngModel)]="nuevoGanado.raza" name="raza" required #raza="ngModel"
+          [class.is-invalid]="raza.invalid && raza.touched" (change)="verificarOtraRaza($event)">
           <option value="" disabled selected>Seleccione una raza</option>
-          <option *ngFor="let raza of razasDisponibles" [value]="raza">{{ raza }}</option>
+          <option *ngFor="let raza of razasDisponibles" [ngValue]="raza">{{ raza }}</option>
+          <option *ngIf="nuevoGanado.raza && !razasDisponibles.includes(nuevoGanado.raza)" [ngValue]="nuevoGanado.raza">
+            {{ nuevoGanado.raza }}</option>
+          <option value="Otra">Otra (especificar)</option>
         </select>
         <div *ngIf="raza.invalid && raza.touched" class="text-danger">Selecciona una raza.</div>
-      </div>      
+      </div>
+
+      <!-- MODAL MEJORADO PARA INGRESAR NUEVA RAZA -->
+      <div *ngIf="mostrarModal" class="modal-overlay">
+        <div class="custom-modal-content animate">
+          <h5 class="custom-modal-title">📝 Especifica la raza</h5>
+          <input type="text" class="form-control custom-modal-input" [(ngModel)]="otraRaza" name="otraRaza"
+            placeholder="Ingrese la raza">
+          <div class="custom-modal-buttons">
+            <button class="btn btn-danger" (click)="cancelarRaza()">✖ Cancelar</button>
+            <button class="btn btn-success" (click)="guardarRaza()">✔ Guardar</button>
+          </div>
+        </div>
+      </div>
 
       <div class="mb-3">
         <label class="form-label">🚻 Sexo:</label>
-        <select class="form-select" [(ngModel)]="nuevoGanado.sexo" name="sexo" required #sexo="ngModel" [class.is-invalid]="sexo.invalid && sexo.touched">
+        <select class="form-select" [(ngModel)]="nuevoGanado.sexo" name="sexo" required #sexo="ngModel"
+          [class.is-invalid]="sexo.invalid && sexo.touched">
           <option value="" disabled selected>Seleccione el sexo</option>
           <option value="Macho">Macho</option>
           <option value="Hembra">Hembra</option>
@@ -29,26 +47,32 @@
       <div class="row">
         <div class="col-md-4">
           <label class="form-label">📅 Edad (meses):</label>
-          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.edad" name="edad" required min="1" #edad="ngModel" [class.is-invalid]="edad.invalid && edad.touched">
+          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.edad" name="edad" required min="1"
+            #edad="ngModel" [class.is-invalid]="edad.invalid && edad.touched">
           <div *ngIf="edad.invalid && edad.touched" class="text-danger">Ingresa una edad válida.</div>
         </div>
 
         <div class="col-md-4">
           <label class="form-label">⚖️ Peso (kg):</label>
-          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.peso" name="peso" required min="1" #peso="ngModel" [class.is-invalid]="peso.invalid && peso.touched">
+          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.peso" name="peso" required min="1"
+            #peso="ngModel" [class.is-invalid]="peso.invalid && peso.touched">
           <div *ngIf="peso.invalid && peso.touched" class="text-danger">Ingresa un peso válido.</div>
         </div>
 
         <div class="col-md-4">
           <label class="form-label">💰 Precio/Kg ($):</label>
-          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.precioPorKilo" name="precioPorKilo" required min="1" #precioPorKilo="ngModel" [class.is-invalid]="precioPorKilo.invalid && precioPorKilo.touched">
-          <div *ngIf="precioPorKilo.invalid && precioPorKilo.touched" class="text-danger">Ingresa un precio válido.</div>
+          <input type="number" class="form-control" [(ngModel)]="nuevoGanado.precioPorKilo" name="precioPorKilo"
+            required min="1" #precioPorKilo="ngModel"
+            [class.is-invalid]="precioPorKilo.invalid && precioPorKilo.touched">
+          <div *ngIf="precioPorKilo.invalid && precioPorKilo.touched" class="text-danger">Ingresa un precio válido.
+          </div>
         </div>
       </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label">🏥 Estado de Salud:</label>
-        <select class="form-select" [(ngModel)]="nuevoGanado.estadoSalud" name="estadoSalud" required #estadoSalud="ngModel" [class.is-invalid]="estadoSalud.invalid && estadoSalud.touched">
+        <select class="form-select" [(ngModel)]="nuevoGanado.estadoSalud" name="estadoSalud" required
+          #estadoSalud="ngModel" [class.is-invalid]="estadoSalud.invalid && estadoSalud.touched">
           <option value="" disabled selected>Seleccione el estado de salud</option>
           <option value="Sano">Sano</option>
           <option value="Enfermo">Enfermo</option>
@@ -59,7 +83,8 @@
 
       <div class="mb-3">
         <label class="form-label">🎯 Propósito:</label>
-        <select class="form-select" [(ngModel)]="nuevoGanado.proposito" name="proposito" required #proposito="ngModel" [class.is-invalid]="proposito.invalid && proposito.touched">
+        <select class="form-select" [(ngModel)]="nuevoGanado.proposito" name="proposito" required #proposito="ngModel"
+          [class.is-invalid]="proposito.invalid && proposito.touched">
           <option value="" disabled selected>Seleccione un propósito</option>
           <option value="Engorde">Engorde</option>
           <option value="Leche">Leche</option>
@@ -74,86 +99,88 @@
           <!-- Botón Exportar a Excel -->
           <button type="button" (click)="exportarExcel()" class="btn custom-btn border border-success text-success">
             <img src="/assets/fotos/archivo-excel.png" alt="Excel" width="20" class="me-2"> Exportar a Excel
-          </button>                  
+          </button>
 
           <!-- Botón Agregar Ganado -->
           <button type="submit" class="custom-green-btn" [disabled]="ganadoForm.invalid">
             ✅ Agregar Ganado
-          </button>                 
+          </button>
 
           <!-- Botón Exportar a PDF -->
           <button type="button" (click)="exportarPDF()" class="btn custom-btn border border-danger text-danger">
             <img src="/assets/fotos/archivo-pdf.png" alt="PDF" width="20" class="me-2"> Exportar a PDF
           </button>
-        </div>                     
-      </div>      
+        </div>
+      </div>
     </fieldset>
   </form>
 
-<!-- FILTROS -->
-<div class="container-fluid d-flex justify-content-center my-3">
-  <div class="card p-3 shadow-sm w-100" style="max-width: 1400px;">
-    <div class="card-body">
-      <div class="row gx-2 gy-2 align-items-center text-center justify-content-between">
-        
-        <!-- Buscador con Ícono de Lupa -->
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="input-group">
-            <span class="input-group-text bg-white">🔍</span>
-            <input type="text" class="form-control" [(ngModel)]="filtro" (input)="filtrarGanado()" placeholder="Buscar..." />
+  <!-- FILTROS -->
+  <div class="container-fluid d-flex justify-content-center my-3">
+    <div class="card p-3 shadow-sm w-100" style="max-width: 1400px;">
+      <div class="card-body">
+        <div class="row gx-2 gy-2 align-items-center text-center justify-content-between">
+
+          <!-- Buscador con Ícono de Lupa -->
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="input-group">
+              <span class="input-group-text bg-white">🔍</span>
+              <input type="text" class="form-control" [(ngModel)]="filtro" (input)="filtrarGanado()"
+                placeholder="Buscar..." />
+            </div>
+          </div>
+
+          <!-- Filtros con distribución igualitaria -->
+          <div class="col">
+            <select class="form-select" [(ngModel)]="filtroRaza" (change)="filtrarGanado()">
+              <option value="">Raza</option>
+              <option *ngFor="let raza of razasDisponibles" [value]="raza">{{ raza }}</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <select class="form-select" [(ngModel)]="filtroSexo" (change)="filtrarGanado()">
+              <option value="">Sexo</option>
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <select class="form-select" [(ngModel)]="filtroEstadoSalud" (change)="filtrarGanado()">
+              <option value="">Salud</option>
+              <option value="Sano">Sano</option>
+              <option value="Enfermo">Enfermo</option>
+              <option value="En tratamiento">En tratamiento</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <select class="form-select" [(ngModel)]="filtroProposito" (change)="filtrarGanado()">
+              <option value="">Propósito</option>
+              <option value="Engorde">Engorde</option>
+              <option value="Leche">Leche</option>
+              <option value="Reproducción">Reproducción</option>
+              <option value="Venta">Venta</option>
+            </select>
+          </div>
+
+          <!-- Botón de limpiar -->
+          <div class="col-lg-2 col-md-3 col-sm-4">
+            <button class="custom-gray-btn w-100" (click)="limpiarFiltros()" style="height: 42px;">
+              ♻️ Limpiar
+            </button>
           </div>
         </div>
-
-        <!-- Filtros con distribución igualitaria -->
-        <div class="col">
-          <select class="form-select" [(ngModel)]="filtroRaza" (change)="filtrarGanado()">
-            <option value="">Raza</option>
-            <option *ngFor="let raza of razasDisponibles" [value]="raza">{{ raza }}</option>
-          </select>
-        </div>
-
-        <div class="col">
-          <select class="form-select" [(ngModel)]="filtroSexo" (change)="filtrarGanado()">
-            <option value="">Sexo</option>
-            <option value="Macho">Macho</option>
-            <option value="Hembra">Hembra</option>
-          </select>
-        </div>
-
-        <div class="col">
-          <select class="form-select" [(ngModel)]="filtroEstadoSalud" (change)="filtrarGanado()">
-            <option value="">Salud</option>
-            <option value="Sano">Sano</option>
-            <option value="Enfermo">Enfermo</option>
-            <option value="En tratamiento">En tratamiento</option>
-          </select>
-        </div>
-
-        <div class="col">
-          <select class="form-select" [(ngModel)]="filtroProposito" (change)="filtrarGanado()">
-            <option value="">Propósito</option>
-            <option value="Engorde">Engorde</option>
-            <option value="Leche">Leche</option>
-            <option value="Reproducción">Reproducción</option>
-            <option value="Venta">Venta</option>
-          </select>
-        </div>
-
-        <!-- Botón de limpiar -->
-        <div class="col-lg-2 col-md-3 col-sm-4">
-          <button class="custom-gray-btn w-100" (click)="limpiarFiltros()" style="height: 42px;">
-            ♻️ Limpiar
-          </button>          
-        </div>        
       </div>
     </div>
   </div>
-</div>
 
   <h2 class="mt-4 titulo-naranja">📜 LISTA DE GANADO</h2>
   <ul class="list-group">
     <li *ngFor="let vaca of ganadoFiltrado" class="list-group-item d-flex justify-content-between align-items-center">
-      <span> 🐂 <strong>{{ vaca.raza }}</strong> - {{ vaca.sexo }} - {{ vaca.edad }} meses - {{ vaca.peso }}kg - 💰 ${{ vaca.totalPrecio | currency:'USD' }} - 🏥 {{ vaca.estadoSalud }} - 🎯 {{ vaca.proposito }}</span>
+      <span> 🐂 <strong>{{ vaca.raza }}</strong> - {{ vaca.sexo }} - {{ vaca.edad }} meses - {{ vaca.peso }}kg - 💰 ${{
+        vaca.totalPrecio | currency:'USD' }} - 🏥 {{ vaca.estadoSalud }} - 🎯 {{ vaca.proposito }}</span>
 
       <div>
         <button class="btn btn-primary btn-sm me-2" (click)="seleccionarGanado(vaca)">
@@ -161,8 +188,8 @@
         </button>
         <button #btnEliminar *ngIf="vaca.id" class="btn btn-danger btn-sm" (click)="eliminarGanado(vaca.id)">
           ❌ Eliminar
-        </button>       
-      </div>    
+        </button>
+      </div>
     </li>
   </ul>
 
@@ -171,74 +198,74 @@
     <h3 class="titulo-resaltado">CANTIDAD DE GANADO: {{ totalVacas }}</h3>
     <h3 class="titulo-resaltado">VALOR TOTAL: {{ totalValor | currency }}</h3>
   </div>
-   </div>
+</div>
 
-  <!-- Modal para Editar Detalles del Ganado -->
-  <div class="modal fade" id="modalDetalleGanado" tabindex="-1" aria-labelledby="modalDetalleGanadoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalDetalleGanadoLabel">Detalles del Ganado</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form *ngIf="ganadoSeleccionado">
-            
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">🐂 Raza:</label>
-              <input type="text" class="form-control" [(ngModel)]="ganadoSeleccionado.raza" name="raza">
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">🚻 Sexo:</label>
-              <select class="form-control" [(ngModel)]="ganadoSeleccionado.sexo" name="sexo">
-                <option value="Macho">Macho</option>
-                <option value="Hembra">Hembra</option>
-              </select>
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">📅 Edad (meses o años):</label>
-              <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.edad" name="edad" min="0">
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">⚖️ Peso (kg):</label>
-              <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.peso" name="peso" min="0">
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">💰 Precio por Kilo ($):</label>
-              <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.precioPorKilo" name="precioPorKilo" min="0">
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">🏥 Estado de Salud:</label>
-              <select class="form-control" [(ngModel)]="ganadoSeleccionado.estadoSalud" name="estadoSalud">
-                <option value="Sano">Sano</option>
-                <option value="Enfermo">Enfermo</option>
-                <option value="En tratamiento">En tratamiento</option>
-              </select>
-            </div>
-  
-            <div class="mb-3">
-              <label class="form-label" style="opacity: 0.5;">🎯 Propósito:</label>
-              <select class="form-control" [(ngModel)]="ganadoSeleccionado.proposito" name="proposito">
-                <option value="Engorde">Engorde</option>
-                <option value="Leche">Leche</option>
-                <option value="Reproducción">Reproducción</option>
-                <option value="Venta">Venta</option>
-              </select>
-            </div>
-  
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="actualizarGanado()">Guardar cambios</button>
-        </div>
+<!-- Modal para Editar Detalles del Ganado -->
+<div class="modal fade" id="modalDetalleGanado" tabindex="-1" aria-labelledby="modalDetalleGanadoLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDetalleGanadoLabel">Detalles del Ganado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="ganadoSeleccionado">
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">🐂 Raza:</label>
+            <input type="text" class="form-control" [(ngModel)]="ganadoSeleccionado.raza" name="raza">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">🚻 Sexo:</label>
+            <select class="form-control" [(ngModel)]="ganadoSeleccionado.sexo" name="sexo">
+              <option value="Macho">Macho</option>
+              <option value="Hembra">Hembra</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">📅 Edad (meses o años):</label>
+            <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.edad" name="edad" min="0">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">⚖️ Peso (kg):</label>
+            <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.peso" name="peso" min="0">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">💰 Precio por Kilo ($):</label>
+            <input type="number" class="form-control" [(ngModel)]="ganadoSeleccionado.precioPorKilo"
+              name="precioPorKilo" min="0">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">🏥 Estado de Salud:</label>
+            <select class="form-control" [(ngModel)]="ganadoSeleccionado.estadoSalud" name="estadoSalud">
+              <option value="Sano">Sano</option>
+              <option value="Enfermo">Enfermo</option>
+              <option value="En tratamiento">En tratamiento</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" style="opacity: 0.5;">🎯 Propósito:</label>
+            <select class="form-control" [(ngModel)]="ganadoSeleccionado.proposito" name="proposito">
+              <option value="Engorde">Engorde</option>
+              <option value="Leche">Leche</option>
+              <option value="Reproducción">Reproducción</option>
+              <option value="Venta">Venta</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="actualizarGanado()">Guardar cambios</button>
       </div>
     </div>
   </div>
-
-  
+</div>

@@ -20,6 +20,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MainComponent implements OnInit, OnDestroy {
   razasDisponibles: string[] = ["Brahman", "GYR", "Holstein", "Jersey", "Normando", "Cebú"];
+  otraRaza: string = '';
+  mostrarModal = false;
+  razaTemporal = '';
   ganado$: Observable<Ganado[]>;
   ganadoFiltrado: Ganado[] = [];
   totalValor: number = 0;
@@ -147,6 +150,29 @@ export class MainComponent implements OnInit, OnDestroy {
     } else {
       console.error("Error: El ganado seleccionado no tiene un ID válido.");
     }
+  }
+
+  verificarOtraRaza(event: any) {
+    if (event.target.value === 'Otra') {
+      this.mostrarModal = true; // Muestra el modal si selecciona "Otra"
+    }
+  }  
+
+  guardarRaza() {
+    if (this.otraRaza.trim() !== '') {
+      this.nuevoGanado.raza = this.otraRaza; // Asigna la nueva raza al modelo
+      this.mostrarModal = false; // Cierra el modal
+    }
+  }   
+
+  cancelarRaza() {
+    this.nuevoGanado.raza = ''; // Deja el campo vacío si cancelan
+    this.cerrarModal();
+  }
+
+  cerrarModal() {
+    this.mostrarModal = false;
+    this.otraRaza = ''; // Limpiar el input del modal
   }
 
   eliminarGanado(id: string) {

@@ -12,7 +12,9 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', loadComponent: () => import('./app/components/login/login.component').then(m => m.LoginComponent) },
   { path: 'main', loadComponent: () => import('./app/components/main/main.component').then(m => m.MainComponent) },
-  { path: 'ia', loadComponent: () => import('./app/ia/ia.component').then(m => m.IaComponent) }
+  { path: 'ia', loadComponent: () => import('./app/ia/ia.component').then(m => m.IaComponent) },
+  { path: 'usuario', loadComponent: () => import('./app/components/usuario/usuario.component').then(m => m.UsuarioComponent) },
+  { path: 'terminos', loadComponent: () => import('./app/components/terminos/terminos.component').then(m => m.TerminosComponent) }
 ];
 
 bootstrapApplication(AppComponent, {

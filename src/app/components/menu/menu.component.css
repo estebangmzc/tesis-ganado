@@ -1,55 +1,74 @@
 /* Estilos generales del menú */
 .menu {
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    background-color: #f8f9fa; /* Color claro y moderno */
-    padding: 12px 24px; /* 🔹 Altura ajustada */
+    justify-content: space-between; /* Distribuye elementos como en Facebook */
+    background-color: #f8f9fa;
+    padding: 12px 24px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 
-                0 6px 14px rgba(0, 0, 0, 0.15); /* 🔹 Sombra interna y externa */
+                0 6px 14px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 10px; /* Bordes más suaves */
+    border-radius: 10px;
     transition: all 0.3s ease-in-out;
 }
 
-/* Efecto de flotación al pasar el mouse sobre el menú */
-.menu:hover {
-    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.12), 
-                0 10px 18px rgba(0, 0, 0, 0.18);
-    transform: translateY(-2px); /* 🔹 Elevación sutil */
+/* Contenedor izquierdo (logo + barra de búsqueda) */
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre elementos */
 }
 
-/* Botones dentro del menú */
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor central (botones de navegación) */
+.menu-center {
+    
+    display: flex;
+    gap: 40px; /* Aumentado el espaciado entre botones excepto el de usuario */
+}
+
+/* Botones del menú */
 .menu button {
     background-color: white;
     color: #333;
     border: 2px solid #ddd;
     font-size: 16px;
-    padding: 12px 22px; /* 🔹 Ajustado para que no se vean enormes */
+    padding: 12px 28px; /* Asegura que todos los botones tengan el mismo tamaño */
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     border-radius: 8px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
     font-weight: 500;
+    min-width: 120px; /* Tamaño uniforme de los botones */
 }
 
-/* Efecto hover en los botones */
+/* Efecto hover en botones */
 .menu button:hover {
     background: linear-gradient(to bottom, #ffffff, #f1f1f1);
     transform: translateY(-2px);
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
     border-color: #aaa;
-}
-
-/* Efecto de clic */
-.menu button:active {
-    transform: translateY(2px);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Botón activo */
@@ -61,34 +80,37 @@
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
 }
 
-/* Botón logout */
-.logout-button {
-    color: #e74c3c;
-    font-weight: bold;
-    border-color: #e74c3c;
+/* Contenedor derecho (iconos + perfil) */
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre iconos */
 }
 
-/* Efecto flotante en el navbar */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 65px; /* 🔹 Altura reducida */
-    background-color: #f8f9fa;
-    z-index: 1000;
+/* Contenedor del icono de perfil */
+.perfil-container {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 
-                0 8px 16px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid #ddd;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease-in-out;
 }
 
-/* Efecto flotante en el navbar al pasar el mouse */
-nav:hover {
-    box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.12), 
-                0 12px 20px rgba(0, 0, 0, 0.18);
-    transform: translateY(-3px);
+/* Efecto hover en icono de perfil */
+.perfil-container:hover {
+    background: linear-gradient(to bottom, #ffffff, #f1f1f1);
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ícono de usuario */
+.icono-perfil {
+    font-size: 28px;
+    color: #333;
 }
