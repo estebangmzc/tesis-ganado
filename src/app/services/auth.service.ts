@@ -1,12 +1,13 @@
 import { Injectable, NgZone, inject } from '@angular/core';
 import { 
-  Auth, 
+  Auth,
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword, 
   signInWithPopup, 
   GoogleAuthProvider, 
   signOut, 
   sendEmailVerification,
+  fetchSignInMethodsForEmail,
   sendPasswordResetEmail,
   updateProfile,
   User,
@@ -32,6 +33,21 @@ export class AuthService {
       this.usuarioActual = user;
       this.auth.languageCode = 'es';
     });
+  }
+
+  // Método para enviar correo de recuperación
+  resetPassword(email: string) {
+    return sendPasswordResetEmail(this.auth, email);
+  }
+
+  // Método para verificar si el email existe en Firebase
+  async checkIfEmailExists(email: string): Promise<boolean> {
+    try {
+      const signInMethods = await fetchSignInMethodsForEmail(this.auth, email);
+      return signInMethods.length > 0; // Si hay métodos de inicio de sesión, el correo existe
+    } catch (error) {
+      return false; // Si hay error, asumimos que el correo no existe
+    }
   }
 
   getUserData(uid: string): Observable<any> {
@@ -170,14 +186,6 @@ export class AuthService {
       onAuthStateChanged(this.auth, user => resolve(user ? user.uid : null), reject);
     });
   }
-
-  async resetPassword(email: string) {
-    try {
-      await sendPasswordResetEmail(this.auth, email);
-    } catch (error: any) {
-      throw new Error(this.getFirebaseErrorMessage(error.code));
-    }
-  }  
 
   async updateProfile(name: string, photoURL: string) {
     if (this.usuarioActual) {

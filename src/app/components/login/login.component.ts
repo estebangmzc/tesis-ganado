@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../../register/register.component';
-import { User } from '@angular/fire/auth';
+import { PasswordResetComponent } from '../password-reset/password-reset.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -82,6 +82,13 @@ export class LoginComponent {
     this.dialog.open(RegisterComponent, { width: '400px' });
   }
 
+  openResetPasswordModal() {  // ✅ Asegúrate de que este método existe
+    this.dialog.open(PasswordResetComponent, {
+      width: '400px',
+      disableClose: true
+    });
+  }
+
   private isValidEmail(email: string): boolean {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
@@ -111,4 +118,3 @@ export class LoginComponent {
     this.cd.markForCheck();
   }
 }
-

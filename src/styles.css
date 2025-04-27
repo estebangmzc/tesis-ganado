@@ -356,6 +356,19 @@ button:disabled,
   content: "✔"; /* Icono Check */
 }
 
+.custom-toast {
+  font-size: 12px !important; /* 🔍 Texto más pequeño */
+  padding: 5px 10px !important; /* 🖼️ Espaciado compacto */
+  min-width: 180px !important; /* 📏 Reduce el tamaño mínimo */
+  width: auto !important; /* 🔧 Ajuste dinámico */
+  text-align: center !important; /* 🎯 Centrado del texto */
+}
+
+.toast-top-right {
+  top: 20px !important; /* 📍 Más cerca del gráfico */
+  right: 20px !important; /* 📍 Más cerca del gráfico */
+}
+
 #video-fondo {
   position: fixed;
   top: 0;
@@ -364,10 +377,6 @@ button:disabled,
   height: 100%;
   object-fit: cover;
   z-index: -1; /* Mantenerlo detrás del contenido */
-  opacity: 0.9; /* Hace que sea menos llamativo */
-  filter: brightness(50%); /* Reduce el brillo para no afectar el contenido */
+  opacity: 0.9; /* Un poco de transparencia */
+  filter: brightness(50%); /* Más oscuro */
 }
-
-
-
-

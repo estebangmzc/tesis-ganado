@@ -1,0 +1,110 @@
+<div class="estadisticas-container">
+    <legend class="h3 text-center titulo-naranja d-flex align-items-center justify-content-center text-uppercase"> 
+        <img src="assets/fotos/archivo-estadisticas.png" alt="Estadísticas" width="50" style="height: 40px;" class="me-2">
+        Estadísticas del Ganado
+    </legend>        
+    <p>Analiza información clave sobre tu ganado en tiempo real.</p>
+
+    <ng-container *ngIf="ganado$ | async as ganado">
+        <p *ngIf="ganado.length === 0" class="text-muted">No hay datos disponibles.</p>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Total de Vacas</h3>
+            <p>🐄 {{ ganado.length }}</p>
+        </section>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Peso Promedio</h3>
+            <p>⚖️ {{ calcularPesoPromedio(ganado) }} kg</p>
+        </section>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Ganado por Propósito</h3>
+            <ul role="list">
+                <li role="listitem">Engorde: {{ contarPorCategoria(ganado, 'proposito', 'Engorde') }}</li>
+                <li role="listitem">Leche: {{ contarPorCategoria(ganado, 'proposito', 'Leche') }}</li>
+                <li role="listitem">Reproducción: {{ contarPorCategoria(ganado, 'proposito', 'Reproducción') }}</li>
+                <li role="listitem">Venta: {{ contarPorCategoria(ganado, 'proposito', 'Venta') }}</li>
+            </ul>
+        </section>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Distribución por Sexo</h3>
+            <p>🐂 Machos: {{ contarPorCategoria(ganado, 'sexo', 'Macho') }} | 🐄 Hembras: {{ contarPorCategoria(ganado, 'sexo', 'Hembra') }}</p>
+        </section>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Distribución por Estado de Salud</h3>
+            <ul role="list">
+                <li role="listitem">Sano: {{ contarPorCategoria(ganado, 'estadoSalud', 'Sano') }}</li>
+                <li role="listitem">Enfermo: {{ contarPorCategoria(ganado, 'estadoSalud', 'Enfermo') }}</li>
+                <li role="listitem">En tratamiento: {{ contarPorCategoria(ganado, 'estadoSalud', 'En tratamiento') }}</li>
+            </ul>
+        </section>
+
+        <section class="estadistica-card" *ngIf="ganado.length > 0">
+            <h3>Valor Total del Ganado</h3>
+            <p>💰 ${{ calcularValorTotalGanado(ganado) | number:'1.0-2' }}</p>
+        </section>
+
+        <!-- Nuevo título para la sección de generación de gráficos -->
+        <h3 class="text-center titulo-naranja mt-4">Generación de Gráficos</h3>
+        <p class="text-center">Selecciona una categoría para visualizar los gráficos.</p>
+
+        <!-- Botones de Categorías -->
+<div class="botones-categorias" *ngIf="ganado.length > 0">
+    <button (click)="seleccionarCategoria('peso-valor')" aria-label="Ver Peso y Valor">Valores por Precio</button>
+    <button (click)="seleccionarCategoria('proposito')" aria-label="Ver Propósito">Valores por Peso</button>
+    <button (click)="seleccionarCategoria('sexo-salud')" aria-label="Ver Sexo y Salud">Sexo y Salud</button>
+    <button (click)="seleccionarCategoria('tendencias')" aria-label="Ver Proyecciones">Proyecciones</button>
+</div>
+
+<!-- Contenedor de Gráficos -->
+<div class="contenedor-graficos" *ngIf="ganado.length > 0 && categoriaSeleccionada">
+    <div *ngIf="categoriaSeleccionada === 'peso-valor'" class="grid-graficos">
+      <div class="grafico">
+        <h4>Valor Total del Ganado por Propósito</h4>
+        <canvas #graficoValor></canvas>
+      </div>
+      <div class="grafico">
+        <h4>Valor Total del Ganado por Peso</h4>
+        <canvas #graficoPesoValor></canvas>
+      </div>
+    </div>
+  
+    <div *ngIf="categoriaSeleccionada === 'proposito'" class="grid-graficos">
+      <div class="grafico">
+        <h4>Edad por Peso</h4>
+        <canvas #graficoEdadPeso></canvas>
+      </div>
+      <div class="grafico">
+        <h4>Ganado por Propósito</h4>
+        <canvas #graficoProp></canvas>
+      </div>
+    </div>
+  
+    <div *ngIf="categoriaSeleccionada === 'sexo-salud'" class="grid-graficos">
+      <div class="grafico">
+        <h4>Distribución por Sexo</h4>
+        <canvas #graficoSexo></canvas>
+      </div>
+      <div class="grafico">
+        <h4>Distribución por Estado de Salud</h4>
+        <canvas #graficoSalud></canvas>
+      </div>
+    </div>
+  
+    <div *ngIf="categoriaSeleccionada === 'tendencias'" class="grid-graficos">
+      <div class="grafico">
+        <h4>Predicción de Tendencias</h4>
+        
+        <!-- Condicional para mostrar mensaje si no hay datos históricos -->
+        <div *ngIf="mensaje" class="mensaje-mostrar">
+          {{ mensaje }}
+        </div>
+        
+        <canvas #graficoPrediccion></canvas>
+      </div>
+    </div>
+  </div>
+  

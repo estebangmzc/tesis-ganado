@@ -1,0 +1,59 @@
+<div class="biblioteca-container">
+  <!-- Contenedor principal con fondo gris transparente -->
+  <div class="content-wrapper">
+    
+    <!-- Título y Logo dentro del contenedor gris -->
+    <legend class="h3 text-center titulo-naranja d-flex align-items-center justify-content-center">
+      <img src="assets/fotos/biblioteca.png" alt="Biblioteca" class="me-2 max-h-64 w-auto">
+      BIBLIOTECA GANADERA
+    </legend>
+
+    <!-- Buscador y filtro dentro del contenedor -->
+    <div class="filter-container flex flex-col md:flex-row gap-4 mb-8">
+      <input
+        type="text"
+        [(ngModel)]="busqueda"
+        placeholder="Buscar por nombre o descripción..."
+        class="search-input"
+      />
+      <select
+        [(ngModel)]="categoriaSeleccionada"
+        class="category-select"
+      >
+        <option value="">Todas las categorías</option>
+        <option value="Razas">Razas</option>
+        <option value="Enfermedades">Enfermedades</option>
+        <option value="Alimentación">Alimentación</option>
+        <option value="Reproducción">Reproducción</option>
+      </select>
+    </div>
+
+    <!-- Tarjetas filtradas -->
+    <div class="grid">
+      <div
+        *ngFor="let tarjeta of tarjetasFiltradas"
+        class="bg-white cursor-pointer p-4 shadow-md rounded-lg transition-all duration-300 hover:shadow-lg card-categoria-{{ tarjeta.categoria | lowercase }}"
+        [ngClass]="getCategoryClass(tarjeta)"
+        (click)="openModal(tarjeta)"
+      >
+        <img [src]="tarjeta.imagen" [alt]="tarjeta.titulo" class="card-img mb-2 w-full h-48 object-cover rounded-md">
+        <h2 class="card-title text-lg font-bold">{{ tarjeta.titulo }}</h2>
+        <p class="card-description text-sm text-gray-700">{{ tarjeta.descripcion }}</p>
+        <span class="inline-block text-xs text-gray-500 mt-1">{{ tarjeta.categoria }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="isModalOpen" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">×</button>
+      <img [src]="selectedTarjeta?.imagen" class="modal-img" alt="Imagen">
+      <h2 class="modal-title">{{ selectedTarjeta?.titulo }}</h2>
+      <p class="modal-desc">{{ selectedTarjeta?.descripcion }}</p>
+      <div class="modal-extra contenido">
+        {{ selectedTarjeta?.contenidoExtendido }}
+      </div>      
+    </div>
+  </div>
+</div>

@@ -102,7 +102,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
 .login-container button:hover {
@@ -148,4 +148,32 @@
 .error-snackbar {
   background-color: #F44336;
   color: white;
+}
+
+.register-text {
+  margin: 10; /* Elimina todos los márgenes */
+  padding: 10; /* Asegura que no haya relleno extra */
+  line-height: 0; /* Reduce la altura de línea */
+}
+
+/* 🔹 Estilos generales del texto */
+.forgot-password-text, .register-text {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.8); /* Blanco suave */
+}
+
+/* 🔹 Estilos de los enlaces */
+.forgot-password-link, .register-link {
+  color: #6daefc; /* Azul cielo equilibrado */
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s;
+}
+
+.forgot-password-link:hover, .register-link:hover {
+  color: #d4e9ff; /* Azul cielo más claro en hover */
+  text-shadow: 0 0 8px rgba(109, 174, 252, 0.8); /* Resplandor sutil */
+  text-decoration: none;
 }

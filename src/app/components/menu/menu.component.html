@@ -5,18 +5,24 @@
         <!-- <div class="logo">MiLogo</div> --> 
     </div>
 
-    <!-- Centro: Botones de navegación -->
-    <div class="menu-center">
-        <button (click)="irAInventario()">
-            <img src="assets/fotos/vaca-inventario.png" alt="Inventario" width="30" height="30"> Inventario
-        </button>
-        <button (click)="irAIa()">
-            <img src="assets/fotos/vaca-ia.png" alt="IA" width="30" height="30"> IA
-        </button>
-        <button class="logout-button" (click)="cerrarSesion()">
-            <img src="assets/fotos/cerrar-login.png" alt="Cerrar Sesión" width="30" height="30"> Cerrar Sesión
-        </button>
-    </div>
+<!-- Centro: Botones de navegación -->
+<div class="menu-center">
+    <button (click)="irAInventario()">
+        <img src="assets/fotos/vaca-inventario.png" alt="Inventario" width="30" height="30"> Inventario
+    </button>
+    <button (click)="irAEstadisticas()">
+        <img src="assets/fotos/archivo-estadisticas.png" alt="Estadísticas" width="30" height="25"> Estadísticas
+    </button>      
+    <button (click)="irABiblioteca()">
+        <img src="assets/fotos/biblioteca.png" alt="" width="25" height="35"> Biblioteca
+      </button>      
+    <button (click)="irAIa()">
+        <img src="assets/fotos/vaca-ia.png" alt="IA" width="30" height="30"> IA
+    </button>
+    <button class="logout-button" (click)="cerrarSesion()">
+        <img src="assets/fotos/cerrar-login.png" alt="Cerrar Sesión" width="30" height="30"> Cerrar Sesión
+    </button>
+</div>
 
 <!-- Derecha: Ícono de configuración y usuario con tooltip -->
 <div class="menu-right">

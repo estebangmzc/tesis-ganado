@@ -1,0 +1,386 @@
+/* Títulos */
+.titulo-naranja {
+    color: black !important;
+    font-size: 30px; /* Aumentamos el tamaño del texto */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espaciado aumentado entre el logo y el texto */
+    margin-top: -20px; /* Mover el título hacia arriba */
+}
+
+/* Imagen del título */
+.titulo-naranja img {
+    width: 70px; /* Aumentamos el tamaño de la imagen */
+    height: 70px; /* Aumentamos el tamaño de la imagen */
+}
+
+/* Contenedor alrededor del título y logo */
+.titulo-container {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px); /* Suaviza el fondo */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    margin-bottom: 30px;
+    max-width: 100%; /* Aseguramos que no exceda el ancho */
+}
+
+/* Estilo del contenedor principal */
+.biblioteca-container {
+    width: 90vw;
+    max-width: 1100px;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 50px auto 120px auto; /* Cambiado el margen superior */
+    overflow: hidden; /* Para evitar que se desborden elementos */
+}
+
+/* Contenedor de búsqueda y filtro */
+.biblioteca-container .flex {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.biblioteca-container input,
+.biblioteca-container select {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Filtro de búsqueda */
+.biblioteca-container input:focus,
+.biblioteca-container select:focus {
+    border-color: #e76f51;
+    box-shadow: 0px 0px 8px rgba(231, 111, 81, 0.5);
+}
+
+/* Estilo de las tarjetas */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Estilo de cada tarjeta */
+.biblioteca-container .bg-white {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%; /* Asegura que las tarjetas no sobrepasen el contenedor */
+    height: auto; /* Ajusta la altura de la tarjeta */
+    display: flex;
+    flex-direction: column; /* Hace que los elementos dentro de la tarjeta estén en columna */
+}
+
+/* Efecto al pasar el ratón */
+.biblioteca-container .bg-white:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen dentro de la tarjeta */
+.biblioteca-container .bg-white img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Títulos dentro de las tarjetas */
+.biblioteca-container h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Párrafos dentro de las tarjetas */
+.biblioteca-container p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Etiquetas de las categorías */
+.biblioteca-container .inline-block {
+    background-color: #e76f51;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+/* Contenedor de búsqueda y filtro */
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .filter-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Contenedor de la card debe tener position: relative */
+.card-categoria-1,
+.card-categoria-2,
+.card-categoria-3,
+.card-categoria-4 {
+    position: relative; /* Asegura que el ::before se posicione en relación con este contenedor */
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 15px;
+    color: white;
+    z-index: 0;
+}
+
+/* Borde neón base (más sutil cuando el mouse no está encima) */
+.card-categoria-1::before,
+.card-categoria-2::before,
+.card-categoria-3::before,
+.card-categoria-4::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 15px;
+    z-index: -1; /* Para que no tape el contenido */
+    transition: box-shadow 0.3s ease;
+    background-color: transparent;
+}
+
+/* Neón leve cuando el mouse no está encima (más suave y elegante) */
+.card-categoria-1::before {
+    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5), 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+.card-categoria-2::before {
+    box-shadow: 0 0 6px rgba(255, 77, 77, 0.5), 0 0 12px rgba(255, 77, 77, 0.3); /* Rojo para enfermedades */
+}
+
+.card-categoria-3::before {
+    box-shadow: 0 0 6px rgba(57, 255, 20, 0.5), 0 0 12px rgba(57, 255, 20, 0.3); /* Verde para razas */
+}
+
+.card-categoria-4::before {
+    box-shadow: 0 0 6px rgba(0, 191, 255, 0.5), 0 0 12px rgba(0, 191, 255, 0.3);
+}
+
+/* Brillo más suave e intenso al pasar el mouse */
+.card-categoria-1:hover::before {
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6), 0 0 28px rgba(255, 215, 0, 0.4);
+    transform: scale(1.03); /* Aumenta ligeramente el tamaño al pasar el mouse */
+}
+
+.card-categoria-2:hover::before {
+    box-shadow: 0 0 12px rgba(255, 77, 77, 0.8), 0 0 20px rgba(255, 77, 77, 0.6), 0 0 28px rgba(255, 77, 77, 0.4); /* Rojo para enfermedades */
+    transform: scale(1.03);
+}
+
+.card-categoria-3:hover::before {
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.8), 0 0 20px rgba(57, 255, 20, 0.6), 0 0 28px rgba(57, 255, 20, 0.4); /* Verde para razas */
+    transform: scale(1.03);
+}
+
+.card-categoria-4:hover::before {
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.8), 0 0 20px rgba(0, 191, 255, 0.6), 0 0 28px rgba(0, 191, 255, 0.4);
+    transform: scale(1.03);
+}
+  
+.contenido {
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 10px;
+    font-size: 16px;
+  }  
+
+/* Fondo semitransparente con desenfoque */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Contenido del modal */
+.modal-content {
+    position: relative;
+    width: 90vw;
+    max-width: 880px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Botón de cerrar */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #e76f51;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+}
+
+/* Imagen del modal alargada sin recorte */
+.modal-img {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: contain;
+    border-radius: 14px;
+    margin-bottom: 24px;
+}
+
+/* Título del modal */
+.modal-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+/* Descripción */
+.modal-desc {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* Contenido adicional */
+.modal-extra {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    color: #333;
+    font-size: 15px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive para tablets */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95vw;
+        padding: 22px;
+        max-height: 85vh;
+    }
+
+    .modal-img {
+        max-height: 260px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+    }
+
+    .modal-desc {
+        font-size: 15px;
+    }
+
+    .modal-extra {
+        font-size: 14px;
+        padding: 16px;
+    }
+
+    .modal-close {
+        top: 8px;
+        right: 12px;
+        font-size: 24px;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 98vw;
+        padding: 16px;
+        max-height: 90vh;
+    }
+
+    .modal-img {
+        width: 100%;
+        height: 300px; /* Tamaño fijo uniforme */
+        object-fit: cover; /* Recorte suave y proporcional */
+        border-radius: 14px;
+        margin-bottom: 24px;
+    }    
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .modal-desc {
+        font-size: 14px;
+    }
+
+    .modal-extra {
+        font-size: 13px;
+        padding: 14px;
+    }
+
+    .modal-close {
+        top: 6px;
+        right: 10px;
+        font-size: 22px;
+    }
+}

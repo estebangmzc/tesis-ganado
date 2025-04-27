@@ -23,7 +23,13 @@
 
     <button (click)="loginWithGoogle()">Iniciar con Google</button>
 
-    <p class="register-text">¿No tienes cuenta? 
-      <span class="register-link" (click)="openRegister()">Regístrate</span>
-    </p>
+    <p class="forgot-password-text styled-text">
+      ¿Olvidaste tu contraseña?  
+      <span class="forgot-password-link styled-link" (click)="openResetPasswordModal()">Recupérala aquí</span>
+    </p>            
+    
+    <p class="register-text styled-text">¿No tienes cuenta? 
+      <span class="register-link styled-link" (click)="openRegister()">Regístrate</span>
+    </p>    
+
   </div>

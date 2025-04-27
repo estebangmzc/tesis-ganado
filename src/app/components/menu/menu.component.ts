@@ -21,10 +21,18 @@ export class MenuComponent {
     this.router.navigate(['/main']);
   }
 
+  irAEstadisticas() {
+    this.router.navigate(['/estadisticas']);
+  }
+
   irAIa() {
     this.router.navigate(['/ia']);
   }
 
+  irABiblioteca() {
+    this.router.navigate(['/biblioteca']);
+  }
+  
   irAUsuario() {
     this.router.navigate(['/usuario']); 
   }
