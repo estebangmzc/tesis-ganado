@@ -200,3 +200,168 @@ h3 {
   border-radius: 5px;
   font-weight: bold;
 }
+
+/* Diseño para dispositivos móviles */
+@media (max-width: 768px) {
+  .estadisticas-container {
+    width: 90vw; /* Hacer el contenedor más ancho */
+    padding: 20px; /* Reducir el padding */
+    margin: 20px auto; /* Ajustar el margen */
+    min-height: auto; /* Ajustar la altura */
+  }
+
+  .estadisticas-container h2 {
+    font-size: 22px; /* Reducir el tamaño del título */
+    gap: 8px; /* Reducir el espacio entre icono y texto */
+  }
+
+  .emote-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .estadisticas-container p {
+    font-size: 16px; /* Reducir el tamaño del texto */
+  }
+
+  .estadistica-card {
+    padding: 15px; /* Reducir el padding */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Reducir el tamaño de texto */
+  }
+
+  .estadistica-card h3 {
+    font-size: 18px; /* Reducir el tamaño del sub-título */
+  }
+
+  .estadistica-card p {
+    font-size: 16px; /* Reducir el tamaño del párrafo */
+  }
+
+  .contemedor-graficos {
+    grid-template-columns: 1fr; /* Hacer que los gráficos se apilen en una columna */
+    gap: 20px; /* Reducir el espacio entre los gráficos */
+  }
+
+  .grafico {
+    width: 100%;
+    min-width: 100%; /* Asegurar que los gráficos no se sobrepasen */
+    max-width: 100%;
+    padding: 15px; /* Reducir el padding */
+  }
+
+  .grafico h4 {
+    font-size: 18px; /* Reducir el tamaño del subtítulo del gráfico */
+  }
+
+  .botones-categorias button {
+    padding: 10px 15px; /* Reducir el padding del botón */
+    font-size: 14px; /* Reducir el tamaño del texto en los botones */
+  }
+
+  .titulo-naranja {
+    font-size: 20px; /* Reducir el tamaño del título */
+  }
+
+  .titulo-naranja img {
+    width: 40px; /* Reducir el tamaño de la imagen */
+    height: 40px;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* Reducir el tamaño de los títulos */
+  }
+
+  .mensaje-mostrar {
+    font-size: 14px; /* Reducir el tamaño del mensaje */
+    padding: 8px; /* Reducir el padding */
+  }
+}
+
+/* Si el tamaño de la pantalla es aún más pequeño (móviles muy pequeños) */
+@media (max-width: 480px) {
+  .estadisticas-container {
+    padding: 15px;
+  }
+
+  .estadisticas-container h2 {
+    font-size: 18px;
+  }
+
+  .estadistica-card {
+    font-size: 14px;
+  }
+
+  .grafico {
+    padding: 10px;
+  }
+
+  .grafico h4 {
+    font-size: 16px;
+  }
+
+  .botones-categorias button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .titulo-naranja {
+    font-size: 18px;
+  }
+
+  .titulo-naranja img {
+    width: 35px;
+    height: 35px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .mensaje-mostrar {
+    font-size: 12px;
+  }
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 768px) {
+  /* Contenedor de los gráficos para móviles */
+  .contenedor-graficos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Hace que los gráficos se ajusten mejor */
+    gap: 20px; /* Espaciado entre los gráficos */
+    justify-items: center;
+    margin-top: 20px;
+  }
+
+  /* Ajustes específicos para los gráficos */
+  .grafico {
+    width: 100%; /* Asegurarse de que los gráficos ocupen todo el espacio disponible */
+    min-width: 100%; /* Evitar que se sobrepasen del contenedor */
+    max-width: 100%; /* Evitar que se expandan más allá de su contenedor */
+    height: auto; /* Mantener la proporción de la altura en relación al ancho */
+    padding: 15px; /* Reducir el padding en pantallas pequeñas */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .grafico canvas {
+    width: 100% !important; /* Asegurarse de que el lienzo ocupe todo el contenedor */
+    height: auto !important; /* Mantener la proporción del gráfico */
+    max-height: 250px; /* Reducir el tamaño máximo del gráfico */
+  }
+
+  /* Ajustes adicionales para pantallas más pequeñas (menor a 480px) */
+  @media (max-width: 480px) {
+    /* Reducir el padding de los gráficos aún más */
+    .grafico {
+      padding: 10px; /* Reducir el padding aún más */
+    }
+
+    .grafico canvas {
+      max-height: 200px; /* Reducir el tamaño máximo del gráfico */
+    }
+  }
+}

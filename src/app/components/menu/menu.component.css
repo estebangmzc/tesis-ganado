@@ -1,8 +1,8 @@
-/* Estilos generales del menú */
+/* Estilos generales del menú (desktop por defecto) */
 .menu {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuye elementos como en Facebook */
+    justify-content: space-between;
     background-color: #f8f9fa;
     padding: 12px 24px;
     position: fixed;
@@ -21,7 +21,7 @@
 .menu-left {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre elementos */
+    gap: 15px;
 }
 
 /* Logo */
@@ -43,9 +43,8 @@
 
 /* Contenedor central (botones de navegación) */
 .menu-center {
-    
     display: flex;
-    gap: 40px; /* Aumentado el espaciado entre botones excepto el de usuario */
+    gap: 40px;
 }
 
 /* Botones del menú */
@@ -54,37 +53,20 @@
     color: #333;
     border: 2px solid #ddd;
     font-size: 16px;
-    padding: 12px 28px; /* Asegura que todos los botones tengan el mismo tamaño */
+    padding: 12px 28px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     border-radius: 8px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
     font-weight: 500;
-    min-width: 120px; /* Tamaño uniforme de los botones */
-}
-
-/* Efecto hover en botones */
-.menu button:hover {
-    background: linear-gradient(to bottom, #ffffff, #f1f1f1);
-    transform: translateY(-2px);
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
-    border-color: #aaa;
-}
-
-/* Botón activo */
-.menu button.active {
-    background: #007bff;
-    color: white;
-    font-weight: bold;
-    border-color: #007bff;
-    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+    min-width: 120px;
 }
 
 /* Contenedor derecho (iconos + perfil) */
 .menu-right {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espacio entre iconos */
+    gap: 15px;
 }
 
 /* Contenedor del icono de perfil */
@@ -102,15 +84,156 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* Efecto hover en icono de perfil */
-.perfil-container:hover {
+/* Botón hamburguesa */
+.menu-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.menu-hamburger div {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Efecto hover en botones */
+.menu button:hover {
     background: linear-gradient(to bottom, #ffffff, #f1f1f1);
     transform: translateY(-2px);
     box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #aaa;
 }
 
-/* Ícono de usuario */
-.icono-perfil {
-    font-size: 28px;
-    color: #333;
+/* Efecto al presionar botón (animación de oprimir) */
+.menu button:active {
+    transform: scale(0.98); /* Reducción más ligera */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Transición más rápida */
+}
+
+/* Estilo cuando el botón está activo (cuando se ha presionado y se mantiene presionado) */
+.menu button.active {
+    background: linear-gradient(to bottom, #fafafa, #eaeaea);
+    color: #525252;
+    font-weight: bold;
+    border-color: #888;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    transform: translateY(-1px);
+    transition: transform 0.1s ease, background 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Media Query para pantallas pequeñas (dispositivos móviles) */
+@media (max-width: 768px) {
+    /* Cambiar el layout de flex a column para dispositivos móviles */
+    .menu {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #f8f9fa;
+        box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 0 6px 14px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        height: 100%; /* Asegura que ocupe toda la altura */
+        overflow-y: auto; /* Permite que el contenido se desplace si es necesario */
+    }
+
+    /* Ajustes para los elementos del menú izquierdo */
+    .menu-left {
+        flex-direction: column; /* Apilar logo y barra de búsqueda */
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 80%; /* Barra de búsqueda ocupa un 80% del ancho */
+        margin-top: 8px;
+    }
+
+    /* Ajustes para el menú central */
+    .menu-center {
+        display: none; /* Se ocultan los botones */
+        flex-direction: column; /* Coloca los botones uno encima de otro */
+        gap: 12px; /* Reducir el gap para aprovechar mejor el espacio */
+        align-items: center;
+        width: 100%;
+    }
+
+    .menu button {
+        min-width: 70%; /* Los botones ocupan 70% del ancho */
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Ajustes para los iconos de perfil */
+    .menu-right {
+        display: none; /* Oculta los iconos */
+    }
+
+    .perfil-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    .menu-hamburger {
+        display: flex;
+    }
+
+    /* Cuando el menú está abierto */
+    .menu.open .menu-center {
+        display: flex;
+    }
+
+    .menu.open .menu-right {
+        display: flex;
+    }
+}
+
+/* Media Query para pantallas muy pequeñas (teléfonos) */
+@media (max-width: 480px) {
+    .menu {
+        padding: 8px 10px;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #f8f9fa;
+        box-shadow: inset 0 5px 8px rgba(0, 0, 0, 0.12), 0 6px 14px rgba(0, 0, 0, 0.15);
+        height: auto;
+        max-height: 100%; /* Limitar la altura a la pantalla */
+        overflow-y: auto; /* Permitir desplazamiento si es necesario */
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .menu button {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%; /* Botones ocupan todo el ancho */
+    }
+
+    .perfil-container {
+        width: 35px;
+        height: 35px;
+    }
 }

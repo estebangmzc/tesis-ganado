@@ -32,7 +32,7 @@ import { firebaseProviders } from './firebase.config';
     UsuarioComponent,
     EditarPerfilComponent,
     TerminosComponent,
-    BibliotecaComponent
+    BibliotecaComponent,
   ],
   imports: [
     BrowserModule,

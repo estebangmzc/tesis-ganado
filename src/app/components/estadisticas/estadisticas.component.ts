@@ -209,12 +209,17 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
           titleFont: { size: 16, weight: 'bold' },
           bodyFont: { size: 14 },
           displayColors: false,
-          position: 'nearest', // Cambia la posición a 'nearest' para que el tooltip esté cerca del punto
+          position: 'nearest',
           callbacks: {
-            label: (tooltipItem: { raw: number }) => 
-              esMoneda 
-              ? ` $${tooltipItem.raw.toLocaleString()} Pesos`
-              : ` ${tooltipItem.raw.toLocaleString()} kg`
+            label: (tooltipItem: any) => {
+              const tipoGrafico = tipo; // Usa tu variable `tipo` declarada fuera
+              if (tipoGrafico === 'pie' || tipoGrafico === 'doughnut') {
+                return ` ${tooltipItem.raw.toLocaleString()}`;
+              }
+              return esMoneda 
+                ? ` $${tooltipItem.raw.toLocaleString()} Pesos`
+                : ` ${tooltipItem.raw.toLocaleString()} kg`;
+            }
           }
         }
       },
@@ -231,8 +236,8 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
             },
             callback: (value: number) => 
               esMoneda 
-              ? `$${value.toLocaleString()}` 
-              : `${value.toLocaleString()} kg`
+                ? `$${value.toLocaleString()}` 
+                : `${value.toLocaleString()} kg`
           }
         },
         x: {
@@ -245,12 +250,12 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
             }
           }
         }
-      } : {}, // Para gráficos de pastel o doughnut, no mostramos los ejes
+      } : {},
       animation: {
         duration: 1500,
         easing: 'easeOutBounce'
       }
-    }
+    }    
   });
 
   this.charts.push(chart);

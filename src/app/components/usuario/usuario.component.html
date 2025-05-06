@@ -5,7 +5,7 @@
         <h2 class="usuario-header titulo-naranja">
             <img src="assets/fotos/usuario.png" alt="Usuario" width="50" height="50" class="me-2">
             Bienvenido, {{ user.displayName || 'Usuario' }}
-        </h2>        
+        </h2>
         <p><strong>Email:</strong> {{ user.email }}</p>
 
         <div *ngIf="userData" class="response">
@@ -16,10 +16,21 @@
             <p *ngIf="userData.birthDate"><strong>Fecha de nacimiento:</strong> {{ userData.birthDate }}</p>
         </div>
 
-        <!-- Botones de acción -->
         <div class="boton-container">
-            <button (click)="openEditProfile()">✏️ Editar Perfil</button>
-            <button (click)="logout()">Cerrar Sesión</button>
+            <button (click)="openEditProfile()">Editar Perfil</button>
+
+            <button 
+            (click)="confirmarEliminarCuenta()" 
+            class="boton-cerrar-sesion"
+            matTooltip="Eliminar cuenta"
+            matTooltipPosition="below"
+            matTooltipClass="custom-tooltip-usuario">
+            <img src="assets/fotos/eliminar-usuario.png" alt="Eliminar Cuenta" />
+          </button>            
+
+            <button (click)="cambiarContrasena()" class="boton-cambiar-contrasena">
+                Cambiar clave
+            </button>
         </div>
     </div>
 

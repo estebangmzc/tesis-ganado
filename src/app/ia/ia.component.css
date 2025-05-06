@@ -1,13 +1,14 @@
+/* Estilo general del contenedor del chat */
 .chat-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
+    width: 90vw; /* Ajustado para pantallas más pequeñas */
     height: 80vh;
     background: rgba(255, 255, 255, 0.85); /* Menos transparencia */
     backdrop-filter: blur(5px); /* Suaviza el fondo sin ser tan fuerte */
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -23,7 +24,7 @@
     flex-direction: column;
     gap: 10px;
     overflow-y: auto;
-    padding: 15px;
+    padding: 10px; /* Reducido para pantallas pequeñas */
 }
 
 /* Mensajes de la IA */
@@ -40,39 +41,49 @@
 .input-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px; /* Reducido para ahorrar espacio */
 }
 
-/* Estilizar el textarea */
 textarea {
     width: 100%;
-    height: 120px;
-    padding: 15px;
+    height: 100px;
+    padding: 12px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 0.2px solid rgba(200, 200, 200, 0.4);
     resize: none;
-    font-size: 18px;
-    background: rgba(255, 255, 255, 0.9); /* Casi sólido */
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    box-shadow: none;
+    color: #333;
+}
+
+/* Cuando el textarea está enfocado */
+textarea:focus {
+    border: 1px solid rgba(160, 160, 160, 0.8); /* gris claro */
+    box-shadow: 0 0 6px rgba(160, 160, 160, 0.5); /* resplandor gris suave */
+    background: rgba(255, 255, 255, 1);
 }
 
 /* Botón de enviar estilo IA */
 button {
-    width: 55%; /* Un poco más ancho */
-    max-width: 280px; /* Ligero aumento */
-    padding: 16px 20px; /* Más alto y con más espacio en los lados */
+    width: 70%; /* Aumentado para aprovechar el espacio */
+    max-width: 250px; /* Limitar el tamaño máximo */
+    padding: 14px 18px; /* Menos alto que antes */
     background: linear-gradient(135deg, #e76f51, #d65c40);
     border: none;
-    border-radius: 14px; /* Bordes más suaves */
+    border-radius: 14px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 18px; /* Texto más visible */
+    font-size: 16px; /* Ajustado para pantallas pequeñas */
     transition: all 0.3s ease-in-out;
     color: white;
     box-shadow: 0px 5px 18px rgba(231, 111, 81, 0.5);
     position: relative;
     overflow: hidden;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     align-self: center;
     display: flex;
     justify-content: center;
@@ -85,12 +96,13 @@ button::before {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 320%;
-    height: 320%;
-    background: radial-gradient(circle, rgba(231, 111, 81, 0.5) 0%, rgba(0, 0, 0, 0) 80%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 80%);
     transition: all 0.4s ease;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0.9;
+    pointer-events: none;
 }
 
 /* Efecto al hacer hover */
@@ -113,7 +125,7 @@ button:active {
 /* Títulos */
 .titulo-naranja {
     color: black !important;
-    font-size: 24px;
+    font-size: 22px; /* Menor tamaño para móviles */
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -123,6 +135,37 @@ button:active {
 
 /* Imagen del título */
 .titulo-naranja img {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Reducido para mejor ajuste */
+    height: 40px; /* Reducido para mejor ajuste */
 }
+
+/* Media Query para teléfonos móviles */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 95vw; /* Mejor ajuste en pantallas pequeñas */
+        height: 90vh; /* Ajuste para pantallas más pequeñas */
+    }
+
+    textarea {
+        height: 100px; /* Reducido para teléfonos */
+    }
+
+    button {
+        width: 80%; /* Más ancho en teléfonos */
+    }
+
+    .titulo-naranja {
+        font-size: 20px; /* Ajustado para pantallas pequeñas */
+    }
+}
+
+.messages {
+    max-height: 400px; /* Ajusta la altura según el diseño de tu chat */
+    overflow-y: auto; /* Permite el scroll vertical cuando el contenido exceda el tamaño */
+    padding-right: 10px; /* Un poco de margen a la derecha si es necesario */
+  }
+  
+  .response p {
+    white-space: pre-line; /* Asegura que los saltos de línea se respeten */
+  }
+  

@@ -24,15 +24,15 @@ const appRoutes: Routes = [
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), // Inicializa Firebase con la config de env
-    provideFirestore(() => getFirestore()), // Habilita Firestore
-    provideAuth(() => getAuth()), // Habilita Auth si lo necesitas
-    provideStorage(() => getStorage()), // Habilita Storage si lo necesitas
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
     importProvidersFrom(
       RouterModule.forRoot(appRoutes),
-      BrowserAnimationsModule, // 🔥 Necesario para Toastr
-      ToastrModule.forRoot() // ✅ Configuración correcta para Toastr
+      BrowserAnimationsModule,
+      ToastrModule.forRoot()
     ),
-    provideToastr() // ✅ Nueva forma de agregar Toastr en standalone
+    provideToastr() 
   ],
 }).catch(err => console.error('❌ Error al iniciar la aplicación:', err.message, err));

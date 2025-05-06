@@ -199,6 +199,10 @@ export class AuthService {
     });
   }  
 
+  sendPasswordResetEmail(email: string) {
+    return sendPasswordResetEmail(this.auth, email);
+  }
+
   private getFirebaseErrorMessage(errorCode: string): string {
     const errorMessages: { [key: string]: string } = {
       'auth/user-not-found': 'No se encontró una cuenta con este correo.',

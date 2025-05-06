@@ -317,70 +317,169 @@
     }
 }
 
-/* Responsive para tablets */
+/* Estilos comunes que no cambian para PC y móviles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Responsive para tablets (hasta 768px) */
 @media (max-width: 768px) {
     .modal-content {
         width: 95vw;
-        padding: 22px;
-        max-height: 85vh;
+        padding: 20px;
+        max-height: 80vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal-img {
-        max-height: 260px;
+        max-height: 250px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 14px;
+        margin-bottom: 20px;
     }
 
     .modal-title {
         font-size: 22px;
+        text-align: center;
     }
 
     .modal-desc {
-        font-size: 15px;
+        font-size: 16px;
+        text-align: center;
     }
 
     .modal-extra {
         font-size: 14px;
-        padding: 16px;
+        padding: 12px;
+        text-align: center;
     }
 
     .modal-close {
-        top: 8px;
-        right: 12px;
-        font-size: 24px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 26px;
+    }
+
+    .titulo-naranja {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .titulo-naranja img {
+        width: 60px;
+        height: 60px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .biblioteca-container {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 12px;
+        justify-items: center; /* Centra los items de la grid */
+        align-items: center; /* Centra los items verticalmente */
+    }
+
+    .grid .card {
+        width: 100%;
+        max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
+        margin: 0 auto; /* Centrado horizontal */
     }
 }
 
-/* Responsive para móviles */
+/* Responsive para móviles (hasta 480px) */
 @media (max-width: 480px) {
     .modal-content {
         width: 98vw;
-        padding: 16px;
+        padding: 14px;
         max-height: 90vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal-img {
         width: 100%;
-        height: 300px; /* Tamaño fijo uniforme */
-        object-fit: cover; /* Recorte suave y proporcional */
+        height: 250px;
+        object-fit: cover;
         border-radius: 14px;
-        margin-bottom: 24px;
-    }    
+        margin-bottom: 20px;
+    }
 
     .modal-title {
         font-size: 20px;
+        text-align: center;
     }
 
     .modal-desc {
         font-size: 14px;
+        text-align: center;
     }
 
     .modal-extra {
-        font-size: 13px;
-        padding: 14px;
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
     }
 
     .modal-close {
+        position: absolute;
         top: 6px;
-        right: 10px;
+        right: 8px;
         font-size: 22px;
+    }
+
+    .titulo-naranja {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .titulo-naranja img {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .biblioteca-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Solo una columna en dispositivos pequeños */
+        gap: 12px;
+        justify-items: center; /* Centrado horizontal de las tarjetas */
+        align-items: center; /* Centrado vertical de las tarjetas */
+    }
+
+    .grid .card {
+        width: 100%;
+        max-width: 300px; /* Ajusta el tamaño máximo de la tarjeta */
+        margin: 0 auto;
     }
 }

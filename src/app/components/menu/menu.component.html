@@ -1,41 +1,55 @@
 <!-- Menú fijo superior -->
-<div class="menu">
-    <!-- Izquierda: Logo (Opcional, puedes agregarlo) -->
+<div class="menu" [ngClass]="{'open': menuOpen}">
     <div class="menu-left">
+        <!-- Logo (opcional) -->
         <!-- <div class="logo">MiLogo</div> --> 
     </div>
 
-<!-- Centro: Botones de navegación -->
-<div class="menu-center">
-    <button (click)="irAInventario()">
-        <img src="assets/fotos/vaca-inventario.png" alt="Inventario" width="30" height="30"> Inventario
-    </button>
-    <button (click)="irAEstadisticas()">
-        <img src="assets/fotos/archivo-estadisticas.png" alt="Estadísticas" width="30" height="25"> Estadísticas
-    </button>      
-    <button (click)="irABiblioteca()">
-        <img src="assets/fotos/biblioteca.png" alt="" width="25" height="35"> Biblioteca
-      </button>      
-    <button (click)="irAIa()">
-        <img src="assets/fotos/vaca-ia.png" alt="IA" width="30" height="30"> IA
-    </button>
-    <button class="logout-button" (click)="cerrarSesion()">
-        <img src="assets/fotos/cerrar-login.png" alt="Cerrar Sesión" width="30" height="30"> Cerrar Sesión
-    </button>
-</div>
+    <!-- Centro: Botones de navegación -->
+    <div class="menu-center">
+        <button 
+            (click)="irAInventario()" 
+            [ngClass]="{ 'active': estaEnRuta('/main') }">
+            <img src="assets/fotos/vaca-inventario.png" alt="Inventario" width="30" height="30"> Inventario
+        </button>
 
-<!-- Derecha: Ícono de configuración y usuario con tooltip -->
-<div class="menu-right">
-    <!-- Ícono de Configuración con tooltip -->
-    <div class="perfil-container" (click)="irATerminos()" matTooltip="Información" matTooltipPosition="below" matTooltipClass="custom-tooltip">
-        <fa-icon [icon]="faCog" class="icono-configuracion"></fa-icon>
+        <button 
+            (click)="irAEstadisticas()" 
+            [ngClass]="{ 'active': estaEnRuta('/estadisticas') }">
+            <img src="assets/fotos/archivo-estadisticas.png" alt="Estadísticas" width="30" height="25"> Estadísticas
+        </button>
+
+        <button 
+            (click)="irABiblioteca()" 
+            [ngClass]="{ 'active': estaEnRuta('/biblioteca') }">
+            <img src="assets/fotos/biblioteca.png" alt="" width="25" height="35"> Biblioteca
+        </button>
+
+        <button 
+            (click)="irAIa()" 
+            [ngClass]="{ 'active': estaEnRuta('/ia') }">
+            <img src="assets/fotos/vaca-ia.png" alt="IA" width="30" height="30"> IA
+        </button>
+
+        <button class="logout-button" (click)="cerrarSesion()">
+            <img src="assets/fotos/cerrar-login.png" alt="Cerrar Sesión" width="30" height="30"> Cerrar Sesión
+        </button>
     </div>
 
-    <!-- Ícono de Usuario con tooltip -->
-    <div class="perfil-container" (click)="irAUsuario()" matTooltip="Perfil" matTooltipPosition="below" matTooltipClass="custom-tooltip">
-        <fa-icon [icon]="faUserCircle" class="icono-perfil"></fa-icon>
+    <!-- Derecha: Íconos -->
+    <div class="menu-right">
+        <div class="perfil-container" (click)="irATerminos()" matTooltip="Información" matTooltipPosition="below" matTooltipClass="custom-tooltip">
+            <fa-icon [icon]="faCog" class="icono-configuracion"></fa-icon>
+        </div>
+        <div class="perfil-container" (click)="irAUsuario()" matTooltip="Perfil" matTooltipPosition="below" matTooltipClass="custom-tooltip">
+            <fa-icon [icon]="faUserCircle" class="icono-perfil"></fa-icon>
+        </div>
+    </div>
+
+    <!-- Botón hamburguesa (solo en dispositivos pequeños) -->
+    <div class="menu-hamburger" (click)="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </div>
-
-
-    

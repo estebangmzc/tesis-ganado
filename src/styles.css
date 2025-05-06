@@ -369,6 +369,71 @@ button:disabled,
   right: 20px !important; /* 📍 Más cerca del gráfico */
 }
 
+/* ======= ESTILOS PARA MÓVILES ======= */
+@media (max-width: 768px) {
+  .contenedor-central {
+    padding: 10px;
+  }
+
+  .contenedor-resaltado {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  .titulo-resaltado {
+    font-size: 1.5rem;
+  }
+
+  .bg-light {
+    padding: 15px;
+  }
+
+  .form-control, .form-select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn-success, .btn-primary, .btn-danger, 
+  .custom-green-btn, .custom-gray-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .list-group-item {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .titulo-naranja {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .custom-modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .custom-modal-title {
+    font-size: 1rem;
+  }
+
+  .custom-modal-input {
+    font-size: 0.9rem;
+  }
+
+  .custom-modal-buttons button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .custom-tooltip {
+    font-size: 12px !important;
+  }
+}
+
 #video-fondo {
   position: fixed;
   top: 0;

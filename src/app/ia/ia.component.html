@@ -3,8 +3,9 @@
     <img src="assets/fotos/vaca-ia.png" alt="Vaca IA" width="50" height="50" class="me-2">
     ASISTENTE GANADERO IA
   </legend>  
+
   <div class="chat-box">
-    <div class="messages">
+    <div class="messages" #messagesContainer>
       <p *ngIf="isLoading" class="loading">⏳ Cargando...</p>
       <div *ngIf="aiResponse" class="response">
         <p>
@@ -13,12 +14,15 @@
             Ganado AI:
           </strong>
         </p>
-        <p>{{ aiResponse }}</p>
+        <!-- Usamos innerHTML con el pipe safeHtml -->
+        <p [innerHTML]="aiResponse | safeHtml"></p>
       </div>
     </div>
+
     <div class="input-container">
       <textarea [(ngModel)]="userInput" placeholder="Pregunta sobre el ganado..."></textarea>
       <button (click)="sendMessage()" [disabled]="!userInput.trim()">Generar Respuesta</button>
     </div>
   </div>
 </div>
+
