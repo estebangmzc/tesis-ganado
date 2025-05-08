@@ -434,19 +434,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El pasto es uno de los alimentos más comunes para el ganado. Es rico en fibra y ayuda a la digestión. El pasto debe ser de buena calidad, libre de pesticidas y debe proporcionarse en grandes cantidades para mantener el ganado saludable. El pastoreo rotacional es una técnica eficaz.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Rico en fibra, mejora la digestión.
         - Promueve una buena salud intestinal.
         - Fuente natural de nutrientes esenciales.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - El pasto debe ser renovado constantemente para evitar que pierda su valor nutritivo.
         - Asegúrese de que el ganado no ingiera pasto con pesticidas.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El pastoreo rotacional no solo mejora la calidad del pasto, sino que también permite una recuperación más rápida de los campos.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Mantenga el pasto libre de maleza y asegúrese de que el ganado no ingiera pasto seco, ya que esto puede reducir su valor nutritivo.
       `,
       expandido: false
@@ -459,19 +459,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El heno es una fuente importante de fibra, especialmente durante los meses más fríos. Se obtiene cortando pastos y dejándolos secar al sol. Es una excelente alternativa cuando el pasto fresco no está disponible. Asegúrese de que el heno sea de buena calidad y no esté mohoso.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Proporciona fibra adicional, favoreciendo la digestión.
         - Ideal para la alimentación en temporada baja (invierno).
         - Ayuda a mantener la salud del aparato digestivo del ganado.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegúrese de almacenar el heno en un lugar seco y fresco para evitar la formación de moho.
         - Use heno de buena calidad, evitando el heno que haya sido recogido demasiado tarde o que tenga un color muy oscuro.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El heno de buena calidad, especialmente el de alfalfa, puede aumentar la producción de leche en vacas lecheras debido a su alto contenido proteico.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Evite alimentar al ganado con heno que esté húmedo o mohoso, ya que puede causar problemas respiratorios y digestivos.
       `,
       expandido: false
@@ -484,19 +484,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         Los suplementos minerales son esenciales para el ganado, especialmente en áreas donde los pastos no proporcionan todos los nutrientes necesarios. Estos suplementos ayudan a mejorar la salud general del ganado, la reproducción y la producción de leche. Los minerales más comunes incluyen calcio, fósforo y magnesio.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aseguran un desarrollo adecuado y un buen estado de salud.
         - Son fundamentales para el crecimiento de los terneros y la producción de leche.
         - Mejoran la salud ósea y la función muscular.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Administre los suplementos de acuerdo con las necesidades específicas del ganado (leche, carne, reproducción).
         - Es importante no sobrealimentar al ganado con minerales, ya que esto puede causar desequilibrios nutricionales.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         En algunas zonas, los suplementos minerales pueden incluir elementos como el selenio y el cobre, que son esenciales para prevenir deficiencias.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Asegúrese de proporcionar agua fresca y limpia junto con los suplementos para facilitar su absorción y evitar problemas digestivos.
       `,
       expandido: false
@@ -509,19 +509,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         Los concentrados, como el maíz, la avena y la cebada, son ricos en energía. Se utilizan para complementar la dieta del ganado y mejorar la ganancia de peso y la producción de leche. Sin embargo, deben administrarse con moderación para evitar problemas digestivos.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Ricos en energía, ideales para el engorde y la producción de leche.
         - Ayudan a aumentar el rendimiento productivo del ganado.
         - Son esenciales para animales en crecimiento o vacas lecheras.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Administre con moderación, ya que un exceso de concentrados puede causar trastornos digestivos.
         - Combine los concentrados con forrajes de buena calidad para equilibrar la dieta.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El maíz es uno de los concentrados más utilizados en la ganadería, ya que es muy accesible y tiene un alto valor energético.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Evite dar concentrados de baja calidad o contaminados, ya que esto puede causar problemas de salud como la acidosis ruminal.
       `,
       expandido: false
@@ -534,20 +534,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El agua es uno de los recursos más importantes para el ganado, ya que es esencial para mantener las funciones corporales. El agua es necesaria para la digestión, la circulación, la regulación de la temperatura y la producción de leche. Asegúrese de que el ganado siempre tenga acceso a agua limpia y fresca.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Mantiene la hidratación y la temperatura corporal.
         - Es esencial para la digestión y la absorción de nutrientes.
         - Mejora la producción de leche en vacas lecheras.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegúrese de que el ganado tenga acceso continuo a agua limpia y fresca.
         - Cambie el agua regularmente para evitar que se contamine.
         - Durante los meses calurosos, asegúrese de que el ganado tenga suficientes fuentes de agua para evitar el estrés térmico.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         Un ganado bien hidratado puede consumir más alimentos y producir más leche, lo que contribuye a una mejor salud y mayor rendimiento productivo.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Evite que el agua esté estancada o en fuentes sucias, ya que puede causar enfermedades en el ganado. Además, asegúrese de que las fuentes de agua estén en lugares accesibles para todos los animales.
       `,
       expandido: false
@@ -560,19 +560,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El sorgo forrajero es una excelente alternativa al pasto, especialmente en áreas donde el pasto es escaso o en períodos de sequía. Es resistente a las condiciones climáticas adversas y tiene un alto contenido de fibra, lo que favorece la digestión de los animales.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Resistente a la sequía.
         - Alta producción de biomasa.
         - Bueno para animales en crecimiento o en fase de engorde.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegúrese de que el sorgo esté bien curado antes de ser consumido.
         - Rotación de pastoreo para evitar el sobrepastoreo.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El sorgo forrajero también es utilizado en la elaboración de silo, lo que ayuda a mantener una fuente constante de alimentación durante los meses más fríos.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Asegúrese de controlar la ingestión de *cianuro*, ya que ciertas variedades de sorgo pueden liberar esta sustancia tóxica en condiciones de estrés.
       `,
       expandido: false
@@ -585,19 +585,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El silaje de maíz es un forraje fermentado que se obtiene al picar y almacenar el maíz en condiciones anaeróbicas (sin oxígeno). Este tipo de alimentación es especialmente útil durante los meses de invierno o cuando los pastos frescos no están disponibles.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aporta energía de fácil digestión.
         - Buena fuente de fibra y carbohidratos.
         - Mejora la producción de leche en vacas lecheras.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegúrese de que el silaje esté bien sellado para evitar la contaminación.
         - Monitoree la humedad del silo para prevenir la descomposición y el moho.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El silaje de maíz también es un excelente conservante que se puede almacenar durante varios meses, asegurando alimento disponible durante todo el año.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         El silaje debe ser consumido poco después de su preparación para evitar que pierda su valor nutritivo. Además, su almacenamiento debe realizarse en condiciones controladas para evitar la formación de hongos.
       `,
       expandido: false
@@ -610,19 +610,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La alfalfa es una planta leguminosa que aporta una gran cantidad de proteínas y minerales. Es ideal para vacas lecheras y otros animales en crecimiento debido a su alto contenido de nutrientes esenciales.
     
-        📌 **Beneficios**:
+        📌 Beneficios**:
         - Alta en proteínas y minerales.
         - Favorece la producción de leche en vacas lecheras.
         - Buena para la digestión y el crecimiento de animales jóvenes.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegúrese de que la alfalfa no esté demasiado seca, ya que esto puede reducir su valor nutritivo.
         - Puede ser utilizada en combinación con otros forrajes para mejorar la dieta.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         En muchas regiones de Colombia, la alfalfa se cultiva como una fuente suplementaria de alimentación durante la temporada de lluvias, ya que se adapta bien a la mayoría de los suelos.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Evite la sobrealimentación de alfalfa, ya que su alto contenido de proteína puede generar problemas digestivos si no se balancea adecuadamente con otros alimentos.
       `,
       expandido: false
@@ -635,19 +635,19 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La melaza es un subproducto de la producción de azúcar que es utilizado como suplemento alimenticio en el ganado. Aporta una gran cantidad de energía rápida y puede mejorar la palatabilidad de la dieta.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Fuente de energía rápida.
         - Mejora la digestión de otros alimentos.
         - Aumenta el apetito en animales con bajo consumo.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Utilícela en pequeñas cantidades, ya que su exceso puede causar problemas digestivos.
         - Es más efectiva cuando se mezcla con otros alimentos como el heno o los concentrados.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         En regiones de Colombia, la melaza es muy popular entre los ganaderos para complementar la dieta de los animales durante la temporada seca, cuando los pastos son escasos.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Asegúrese de que la melaza se almacene en un lugar fresco y seco para evitar la fermentación, lo que podría afectar su calidad y valor nutritivo.
       `,
       expandido: false
@@ -660,20 +660,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El ciclo reproductivo del ganado bovino incluye etapas como el celo, la inseminación, la gestación y el parto. Identificar correctamente cada etapa permite optimizar los tiempos de reproducción y aumentar la tasa de concepción.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Mejora la planificación de nacimientos.
         - Permite detectar problemas de fertilidad.
         - Aumenta la eficiencia reproductiva del hato.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Observar signos de celo para programar inseminaciones.
         - Mantener un registro detallado del historial reproductivo.
         - Aplicar protocolos de sincronización hormonal cuando sea necesario.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El celo en vacas dura entre 12 y 18 horas. Detectarlo a tiempo es clave para una inseminación exitosa.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         La revisión periódica por parte de un veterinario reproductivo puede prevenir problemas como infecciones uterinas o infertilidad.
       `,
       expandido: false
@@ -686,20 +686,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La inseminación artificial (IA) consiste en depositar semen de un toro genéticamente seleccionado en el aparato reproductor de la vaca sin necesidad de monta natural. Es una técnica segura y efectiva que permite el mejoramiento genético.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aumenta la calidad genética del hato.
         - Reduce la transmisión de enfermedades venéreas.
         - Elimina la necesidad de mantener toros reproductores.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Capacitar al personal encargado de realizar la IA.
         - Utilizar pajillas de semen de toros certificados.
         - Aplicar protocolos hormonales si se requiere sincronización.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         Con IA se puede inseminar a más de 1,000 vacas con el semen de un solo toro de alta genética.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Realiza controles de gestación entre los 30 y 45 días post-inseminación para verificar resultados.
       `,
       expandido: false
@@ -712,20 +712,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La gestación del ganado bovino dura aproximadamente 9 meses. Durante este periodo es fundamental cuidar la salud y nutrición de la vaca para asegurar un desarrollo fetal adecuado.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Reduce riesgos de aborto o complicaciones al parto.
         - Mejora la salud de la cría al nacer.
         - Incrementa la producción futura de leche.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Proporcionar una dieta balanceada rica en minerales y vitaminas.
         - Realizar chequeos veterinarios periódicos.
         - Evitar el estrés físico y térmico.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El 80% del desarrollo fetal ocurre en los últimos 3 meses de gestación.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Asegura un espacio cómodo y limpio para la vaca gestante, sobre todo al acercarse el parto.
       `,
       expandido: false
@@ -738,20 +738,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El parto debe ser monitoreado para intervenir si hay complicaciones. Una vez nacido, el ternero debe recibir cuidados inmediatos como limpieza, corte del cordón umbilical y suministro de calostro.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aumenta la supervivencia de la cría.
         - Mejora la recuperación posparto de la madre.
         - Reduce el riesgo de infecciones neonatales.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asistir el parto solo si hay complicaciones visibles.
         - Desinfectar adecuadamente el cordón umbilical.
         - Asegurar que el ternero consuma calostro en las primeras 6 horas.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         El calostro proporciona inmunidad pasiva y es esencial para proteger al ternero durante sus primeros días.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Vigila la madre después del parto por signos de retención placentaria o infecciones uterinas.
       `,
       expandido: false
@@ -764,20 +764,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El mejoramiento genético consiste en seleccionar animales con características superiores (producción, salud, conformación) para la reproducción, elevando así el nivel general del hato.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aumenta la rentabilidad del negocio ganadero.
         - Mejora la resistencia a enfermedades y el rendimiento.
         - Permite mantener estándares de calidad productiva.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Llevar registros detallados de producción y salud.
         - Utilizar tecnologías como IA y pruebas genéticas.
         - Seleccionar animales con buena conformación y temperamento.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         La genética influye hasta en un 50% en la producción lechera de una vaca.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Evita la consanguinidad y planifica cruzamientos estratégicos para mantener diversidad genética.
       `,
       expandido: false
@@ -790,20 +790,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         El diagnóstico de preñez permite confirmar si una vaca está gestando y ayuda a monitorear la eficiencia reproductiva del rebaño. Puede realizarse mediante palpación rectal, ecografía o análisis de laboratorio.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Permite tomar decisiones rápidas sobre vacas vacías.
         - Mejora la eficiencia reproductiva del hato.
         - Ahorra recursos al evitar alimentar vacas improductivas.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Realizar el diagnóstico entre los 30 y 45 días después de la inseminación.
         - Utilizar veterinarios capacitados o personal técnico.
         - Registrar resultados para mejorar la gestión del hato.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         La ecografía transrectal puede detectar la preñez con apenas 28 días desde la concepción.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Realiza diagnósticos en lotes grandes para ahorrar tiempo y recursos.
       `,
       expandido: false
@@ -816,20 +816,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La sincronización del celo consiste en administrar hormonas para controlar el ciclo reproductivo de las vacas y así programar de forma precisa el momento de la inseminación.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Aumenta las tasas de concepción.
         - Reduce el tiempo entre partos.
         - Permite inseminar a varias vacas el mismo día.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Seguir el protocolo exacto recomendado por el veterinario.
         - Usar productos hormonales aprobados.
         - Vigilar el comportamiento post-aplicación para asegurar que todas respondieron.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         Existen protocolos como Ovsynch y Presynch que han demostrado altos índices de efectividad.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Realiza los tratamientos en ambientes tranquilos para evitar que el estrés afecte la respuesta hormonal.
       `,
       expandido: false
@@ -842,20 +842,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         La etapa de cría incluye desde el nacimiento hasta el destete del ternero. Durante este tiempo es fundamental asegurar una alimentación adecuada, control de enfermedades y un entorno libre de estrés.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Mejora el crecimiento y desarrollo del ternero.
         - Reduce la mortalidad infantil en el ganado.
         - Aumenta el rendimiento futuro del animal.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Asegurar el consumo de calostro en las primeras horas de vida.
         - Aplicar vacunas y desparasitación en el tiempo correcto.
         - Realizar el destete de forma gradual y controlada.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         Un buen calostro contiene más de 50g/L de inmunoglobulinas, vitales para el sistema inmune del ternero.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Usa sustitutos lácteos solo si la madre no puede amamantar, y asegúrate que sean de buena calidad.
       `,
       expandido: false
@@ -868,20 +868,20 @@ export class BibliotecaComponent {
       contenidoExtendido: `
         Los toros reproductores son responsables de gran parte de la genética del hato. Su manejo adecuado incluye evaluaciones sanitarias, físicas y de fertilidad.
     
-        📌 **Beneficios**:
+        📌 Beneficios:
         - Mejora genética garantizada en las crías.
         - Reduce riesgos de enfermedades de transmisión sexual.
         - Aumenta la eficiencia de la monta natural.
     
-        🐄 **Recomendaciones**:
+        🐄 Recomendaciones:
         - Evaluar su capacidad reproductiva antes de cada temporada.
         - Proveer buena nutrición, ejercicio y control sanitario.
         - Evitar el sobreuso de un solo toro.
     
-        📚 **Dato interesante**:
+        📚 Dato interesante:
         Un toro en buenas condiciones puede cubrir entre 25 y 40 vacas por temporada.
     
-        💡 **Cuidado adicional**:
+        💡 Cuidado adicional:
         Separa los toros agresivos o con historial de enfermedades para evitar accidentes o contagios.
       `,
       expandido: false
