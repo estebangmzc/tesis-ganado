@@ -26,7 +26,7 @@ export class MistralService {
     "madre de cría", "potrero mejorado", "pradera mixta", "suplementación estratégica", "silvopastoreo", "forraje de corte",  
     "bloques multinutricionales", "ensilaje de maíz", "suplemento proteico", "condición corporal", "pastoreo racional", "razas"
 
-  ]; // 🐄 Temas permitidos
+  ];
 
   constructor() {}
 
@@ -61,15 +61,12 @@ export class MistralService {
   
       let responseText = response.data.choices?.[0]?.message?.content || "No entendí la pregunta.";
   
-      // Agregar saltos de línea entre los puntos de la respuesta
       responseText = responseText.replace(/(\d+\.)/g, '\n$1');
   
-      // 🔹 Corrección de términos incorrectos
       responseText = responseText.replace(/\bla ganado\b/g, "el ganado");
       responseText = responseText.replace(/\buna novillo\b/g, "un novillo");
   
-      // Limpiar los asteriscos y el formato Markdown
-      responseText = responseText.replace(/\*\*(.*?)\*\*/g, '$1'); // Elimina negritas ( **texto** )
+      responseText = responseText.replace(/\*\*(.*?)\*\*/g, '$1');
   
       return responseText;
     } catch (error) {

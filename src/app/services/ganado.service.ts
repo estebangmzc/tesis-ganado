@@ -17,7 +17,6 @@ export interface Ganado {
   proposito: string;
 }
 
-// Conversor para manejar correctamente los datos en Firestore
 const ganadoConverter: FirestoreDataConverter<Ganado> = {
   toFirestore(ganado: Ganado) {
     return { ...ganado };
@@ -72,7 +71,6 @@ export class GanadoService {
           return;
         }
 
-        // Aplicamos el conversor aquí
         const ganadoCollection = collection(this.firestore, `usuarios/${uid}/ganado`).withConverter(ganadoConverter);
 
         collectionData(ganadoCollection, { idField: 'id' })

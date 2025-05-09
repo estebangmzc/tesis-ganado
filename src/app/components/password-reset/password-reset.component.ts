@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgIf } from '@angular/common';
-import { AuthService } from '../../services/auth.service'; // ✅ Corrige la ruta de importación
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-password-reset',
@@ -20,7 +20,7 @@ export class PasswordResetComponent {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService, // ✅ Ahora se inyecta correctamente
+    private authService: AuthService,
     private dialogRef: MatDialogRef<PasswordResetComponent>
   ) {
     this.resetForm = this.fb.group({

@@ -73,11 +73,11 @@ export class RegisterComponent implements AfterViewInit {
       });
 
       Swal.fire({
-        icon: 'success', // Tipo de alerta
+        icon: 'success',
         title: 'Registro exitoso',
         text: 'Por favor, verifica tu correo antes de iniciar sesión.',
-        confirmButtonText: 'Aceptar', // ✅ Cambia "OK" por "Aceptar"
-        confirmButtonColor: '#28a745' // ✅ Usa el verde que mencionaste
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#28a745'
       }).then(() => {
         this.closeModal();
       });            

@@ -46,7 +46,7 @@ export class LoginComponent {
       if (user) {
         if (!user.emailVerified) {
           this.setErrorMessage('Tu correo no está verificado. Hemos enviado un nuevo correo de verificación.');
-          await this.authService.sendVerificationEmail(user); // ✅ Pasamos el usuario
+          await this.authService.sendVerificationEmail(user);
           return;
         }        
   
@@ -82,7 +82,7 @@ export class LoginComponent {
     this.dialog.open(RegisterComponent, { width: '400px' });
   }
 
-  openResetPasswordModal() {  // ✅ Asegúrate de que este método existe
+  openResetPasswordModal() {
     this.dialog.open(PasswordResetComponent, {
       width: '400px',
       disableClose: true

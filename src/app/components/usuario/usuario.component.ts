@@ -76,7 +76,6 @@ export class UsuarioComponent implements OnInit, OnDestroy {
     this.mostrarModal = false;
   }
 
-  // ✅ Confirmación con SweetAlert para eliminar cuenta
   confirmarEliminarCuenta() {
     Swal.fire({
       title: "¿Estás seguro?",
@@ -94,7 +93,6 @@ export class UsuarioComponent implements OnInit, OnDestroy {
     });
   }
 
-  // ✅ Eliminación de cuenta Firebase
   eliminarCuenta() {
     const auth = getAuth();
     const user = auth.currentUser;

@@ -15,20 +15,17 @@ export class PdfService {
   async generarPDF(ganado: any[]) {
     const doc = new jsPDF();
 
-    // 📌 Marca de agua
     doc.setFontSize(90);
     doc.setFont('helvetica', 'bold');
     doc.setTextColor(230, 230, 230);
     doc.text('INVENTARIO', 115, 215, { angle: 20, align: 'center' });
     doc.setTextColor(0, 0, 0);
 
-    // 📌 Logo
     const imgUrl = 'assets/fotos/vaca-ia.png';
     doc.setFillColor(200, 200, 200);
     doc.rect(155, 5, 45, 45, 'F');
     doc.addImage(imgUrl, 'PNG', 160, 10, 35, 35);
 
-    // 📌 Título y fecha
     doc.setFontSize(18);
     doc.setFont('helvetica', 'bold');
     doc.text('Inventario de Ganado', 14, 15);
@@ -36,7 +33,6 @@ export class PdfService {
     doc.setFontSize(12);
     doc.text(`Fecha: ${fechaActual}`, 14, 25);
 
-    // 📌 Estadísticas
     const totalCabezas = ganado.length;
     const pesoPromedio = totalCabezas > 0 ? (ganado.reduce((sum, vaca) => sum + vaca.peso, 0) / totalCabezas).toFixed(2) : '0';
     const capitalTotal = ganado.reduce((sum, vaca) => sum + vaca.totalPrecio, 0).toFixed(2);
@@ -45,7 +41,6 @@ export class PdfService {
     doc.text(`Peso promedio del ganado: ${pesoPromedio} kg`, 14, 45);
     doc.text(`Capital total en ganado: $${capitalTotal}`, 14, 55);
 
-    // 📌 Tabla
     const columnas = ['Raza', 'Sexo', 'Edad', 'Peso (kg)', 'Precio x Kg', 'Total Precio', 'Estado de Salud', 'Propósito'];
     const filas = ganado.map(vaca => [
       vaca.raza, vaca.sexo, vaca.edad, vaca.peso,
@@ -64,11 +59,9 @@ export class PdfService {
       margin: { top: 10 },
     });
 
-    // 📌 Posición después de la tabla
     let finalY = (doc as any).lastAutoTable.finalY || 100;
     finalY += 20;
 
-// 📊 Gráfico 1: Distribución del Peso Promedio del Ganado
 const canvasPesoPromedio = document.createElement('canvas');
 canvasPesoPromedio.width = 600;
 canvasPesoPromedio.height = 300;
@@ -94,19 +87,19 @@ if (ctxPesoPromedio) {
       datasets: [{
         label: 'Peso Promedio (kg) por Raza',
         data: pesoPromedio,
-        backgroundColor: 'rgba(255, 159, 64, 0.8)',  // Color de las barras
-        borderColor: '#FF7F50',  // Color de borde
+        backgroundColor: 'rgba(255, 159, 64, 0.8)',
+        borderColor: '#FF7F50',
         borderWidth: 1,
-        borderRadius: 5, // Bordes redondeados para las barras
-        hoverBackgroundColor: 'rgba(255, 159, 64, 1)', // Color al pasar el cursor
+        borderRadius: 5,
+        hoverBackgroundColor: 'rgba(255, 159, 64, 1)',
         hoverBorderColor: '#FF7F50',
-        barPercentage: 0.8, // Establecer el ancho de las barras
+        barPercentage: 0.8,
       }]
     },
     options: {
-      responsive: false,  // Desactivar la opción de responsividad
+      responsive: false,
       plugins: { 
-        legend: { display: false }, // Ocultar leyenda
+        legend: { display: false },
         tooltip: {
           backgroundColor: '#fff',
           titleColor: '#000',
@@ -124,33 +117,31 @@ if (ctxPesoPromedio) {
             callback: function(value) { return (Number(value) || 0).toFixed(0); }
           },
           grid: {
-            color: '#ddd'  // Líneas de la cuadrícula más suaves
+            color: '#ddd'
           }
         },
         x: { 
           title: { display: true, text: 'Razas de Ganado' },
           grid: {
-            display: false, // Quitar líneas en el eje X
+            display: false,
           }
         }
       }
     }
   });
 
-  await new Promise(resolve => setTimeout(resolve, 500));  // Tiempo de espera para la generación de la imagen
+  await new Promise(resolve => setTimeout(resolve, 500));
   const pesoPromedioImage = canvasPesoPromedio.toDataURL('image/png');
 
-  // 📌 Verificar espacio y agregar nueva página si es necesario
   if (finalY + 90 > doc.internal.pageSize.height) {
     doc.addPage();
-    finalY = 20; // Reiniciar en la nueva página
+    finalY = 20;
   }
 
-  doc.addImage(pesoPromedioImage, 'PNG', 20, finalY, 160, 80); // Agregar la imagen al PDF
-  finalY += 90;  // Aumentar el espacio para el siguiente gráfico
+  doc.addImage(pesoPromedioImage, 'PNG', 20, finalY, 160, 80);
+  finalY += 90;
 }
 
-// 📊 Gráfico 2: Valor Total por Raza
 const canvasValorTotal = document.createElement('canvas');
 canvasValorTotal.width = 600;
 canvasValorTotal.height = 300;
@@ -175,19 +166,19 @@ if (ctxValorTotal) {
       datasets: [{
         label: 'Valor Total ($) por Raza',
         data: valorTotal,
-        backgroundColor: 'rgba(75, 192, 192, 0.8)',  // Color de las barras
-        borderColor: '#1C8D73',  // Color de borde
+        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+        borderColor: '#1C8D73',
         borderWidth: 1,
-        borderRadius: 5,  // Bordes redondeados para las barras
-        hoverBackgroundColor: 'rgba(75, 192, 192, 1)',  // Color al pasar el cursor
+        borderRadius: 5,
+        hoverBackgroundColor: 'rgba(75, 192, 192, 1)',
         hoverBorderColor: '#1C8D73',
-        barPercentage: 0.8,  // Establecer el ancho de las barras
+        barPercentage: 0.8,
       }]
     },
     options: {
-      responsive: false,  // Desactivar la opción de responsividad
+      responsive: false,
       plugins: { 
-        legend: { display: false },  // Ocultar leyenda
+        legend: { display: false },
         tooltip: {
           backgroundColor: '#fff',
           titleColor: '#000',
@@ -205,33 +196,31 @@ if (ctxValorTotal) {
             callback: function(value) { return `$${(Number(value) || 0).toFixed(0)}`; }
           },
           grid: {
-            color: '#ddd'  // Líneas de la cuadrícula más suaves
+            color: '#ddd'
           }
         },
         x: { 
           title: { display: true, text: 'Razas de Ganado' },
           grid: {
-            display: false, // Quitar líneas en el eje X
+            display: false,
           }
         }
       }
     }
   });
 
-  await new Promise(resolve => setTimeout(resolve, 500));  // Tiempo de espera para la generación de la imagen
+  await new Promise(resolve => setTimeout(resolve, 500));
   const valorTotalImage = canvasValorTotal.toDataURL('image/png');
 
-  // 📌 Verificar espacio y agregar nueva página si es necesario
   if (finalY + 90 > doc.internal.pageSize.height) {
     doc.addPage();
-    finalY = 20; // Reiniciar en la nueva página
+    finalY = 20;
   }
 
-  doc.addImage(valorTotalImage, 'PNG', 20, finalY, 160, 80);  // Agregar la imagen al PDF
-  finalY += 90;  // Aumentar el espacio para el siguiente gráfico
+  doc.addImage(valorTotalImage, 'PNG', 20, finalY, 160, 80);
+  finalY += 90;
 }
 
-// 📊 Gráfico 3: Cantidad de Ganado por Raza
 const canvasCantidadGanado = document.createElement('canvas');
 canvasCantidadGanado.width = 600;
 canvasCantidadGanado.height = 300;
@@ -256,19 +245,19 @@ if (ctxCantidadGanado) {
       datasets: [{
         label: 'Cantidad de Ganado por Raza',
         data: cantidadGanado,
-        backgroundColor: 'rgba(153, 102, 255, 0.8)',  // Color de las barras
-        borderColor: '#9966FF',  // Color de borde
+        backgroundColor: 'rgba(153, 102, 255, 0.8)',
+        borderColor: '#9966FF',
         borderWidth: 1,
-        borderRadius: 5,  // Bordes redondeados para las barras
-        hoverBackgroundColor: 'rgba(153, 102, 255, 1)',  // Color al pasar el cursor
+        borderRadius: 5,
+        hoverBackgroundColor: 'rgba(153, 102, 255, 1)',
         hoverBorderColor: '#9966FF',
-        barPercentage: 0.8,  // Establecer el ancho de las barras
+        barPercentage: 0.8,
       }]
     },
     options: {
-      responsive: false,  // Desactivar la opción de responsividad
+      responsive: false,
       plugins: { 
-        legend: { display: false },  // Ocultar leyenda
+        legend: { display: false },
         tooltip: {
           backgroundColor: '#fff',
           titleColor: '#000',
@@ -286,40 +275,37 @@ if (ctxCantidadGanado) {
             callback: function(value) { return (Number(value) || 0).toFixed(0); }
           },
           grid: {
-            color: '#ddd'  // Líneas de la cuadrícula más suaves
+            color: '#ddd'
           }
         },
         x: { 
           title: { display: true, text: 'Razas de Ganado' },
           grid: {
-            display: false, // Quitar líneas en el eje X
+            display: false,
           }
         }
       }
     }
   });
 
-  await new Promise(resolve => setTimeout(resolve, 500));  // Tiempo de espera para la generación de la imagen
+  await new Promise(resolve => setTimeout(resolve, 500));
   const cantidadGanadoImage = canvasCantidadGanado.toDataURL('image/png');
 
-  // 📌 Verificar espacio y agregar nueva página si es necesario
   if (finalY + 90 > doc.internal.pageSize.height) {
     doc.addPage();
-    finalY = 20; // Reiniciar en la nueva página
+    finalY = 20;
   }
 
-  doc.addImage(cantidadGanadoImage, 'PNG', 20, finalY, 160, 80);  // Agregar la imagen al PDF
-  finalY += 90;  // Aumentar el espacio para el siguiente gráfico
+  doc.addImage(cantidadGanadoImage, 'PNG', 20, finalY, 160, 80);
+  finalY += 90;
 }
 
-    // 📌 Verificar espacio para Firma y QR
     if (finalY + 50 > doc.internal.pageSize.height) {
       doc.addPage();
       finalY = 20;
     }
 
-   // 📌 Firma y QR (posición ajustada)
-const espacioExtra = 10; // Ajuste para bajarlo un poco más
+const espacioExtra = 10;
 
 doc.text('______________________', 14, finalY + espacioExtra);
 doc.text('Firma del Responsable', 14, finalY + 10 + espacioExtra);
@@ -328,8 +314,6 @@ const qrData = `Inventario de Ganado\nFecha: ${fechaActual}\nTotal Cabezas: ${to
 const qrImage = await QRCode.toDataURL(qrData);
 doc.addImage(qrImage, 'PNG', 14, finalY + 15 + espacioExtra, 30, 30);
 
-
-    // 📌 Paginación
     const pageCount = doc.internal.pages.length - 1;
     for (let i = 1; i <= pageCount; i++) {
       doc.setPage(i);
@@ -337,7 +321,6 @@ doc.addImage(qrImage, 'PNG', 14, finalY + 15 + espacioExtra, 30, 30);
       doc.text(`Página ${i} de ${pageCount}`, 180, doc.internal.pageSize.height - 10);
     }
 
-    // 📌 Guardar PDF
     doc.save(`Inventario_Ganado_${fechaActual}.pdf`);
   }
 }  

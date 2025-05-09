@@ -212,7 +212,7 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
           position: 'nearest',
           callbacks: {
             label: (tooltipItem: any) => {
-              const tipoGrafico = tipo; // Usa tu variable `tipo` declarada fuera
+              const tipoGrafico = tipo;
               if (tipoGrafico === 'pie' || tipoGrafico === 'doughnut') {
                 return ` ${tooltipItem.raw.toLocaleString()}`;
               }
@@ -297,7 +297,7 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
       this.charts = [];
     }    
      
-    // CREATE GRAFICOS
+    // CREAR GRAFICOS
 
     private crearGraficoValor() {
       const propositos = ['Engorde', 'Leche', 'Reproducción', 'Venta'];
@@ -355,7 +355,7 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
       this.crearGrafico(
         this.graficoPesoValor,
         'bar',
-        '', // Se elimina el título pequeño
+        '',
         etiquetas,
         valores,
         ['#FF5733'],
@@ -390,9 +390,9 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
         propositos,
         pesosPromedio,
         colores,
-        false,  // No redondear los valores
-        false,   // Mostrar leyenda
-        false   // No mostrar kg ni pesos en el tooltip
+        false,
+        false,
+        false
       );
     }        
 
@@ -405,8 +405,8 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
           this.contarPorPropiedad('sexo', ['Macho', 'Hembra']),
           ['#FF6384', '#36A2EB'],
           true,
-          true, // Mantiene la leyenda
-          false // Evita mostrar kg o pesos
+          true,
+          false
       );
   }
   
@@ -421,8 +421,8 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
           datos,
           ['#2ECC71', '#E74C3C', '#F1C40F'],
           true,
-          true, // Mantiene la leyenda
-          false // Evita mostrar kg o pesos
+          true,
+          false
       );
   }                          
 
@@ -433,7 +433,6 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
   
       this.mensaje = "Este gráfico requiere datos históricos para hacer predicciones. A medida que pase el tiempo y se registren más datos, se podrá generar una proyección del peso.";    
   
-      // Genera el gráfico vacío con valores predeterminados
       this.crearGrafico(this.graficoPrediccion, 'line', 'Predicción de Peso Promedio',
         ['Mes Actual', 'Próximo Mes', '2 Meses'],
         [0, 0, 0], 
@@ -441,7 +440,6 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
       return;
     }
   
-    // Si hay suficientes datos, limpiamos el mensaje
     this.mensaje = '';
   
     let tendencia = historicoPesos[2] - historicoPesos[1];
@@ -454,7 +452,6 @@ export class EstadisticasComponent implements OnInit, OnDestroy {
     const proyeccion1 = historicoPesos[2] + tendencia;
     const proyeccion2 = proyeccion1 + tendencia;
   
-    // Genera el gráfico con los valores calculados
     this.crearGrafico(this.graficoPrediccion, 'line', 'Predicción de Peso Promedio',
       ['Mes Actual', 'Próximo Mes', '2 Meses'],
       [historicoPesos[2], proyeccion1, proyeccion2],

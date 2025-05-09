@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Importa CommonModule para *ngIf
-import { RouterModule } from '@angular/router'; // Importa RouterModule para <router-outlet>
-import { MenuComponent } from './components/menu/menu.component'; // Importa el menú
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MenuComponent } from './components/menu/menu.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Componente independiente
-  imports: [CommonModule, RouterModule, MenuComponent], // Asegura los módulos necesarios
+  standalone: true,
+  imports: [CommonModule, RouterModule, MenuComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

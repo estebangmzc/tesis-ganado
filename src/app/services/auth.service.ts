@@ -44,9 +44,9 @@ export class AuthService {
   async checkIfEmailExists(email: string): Promise<boolean> {
     try {
       const signInMethods = await fetchSignInMethodsForEmail(this.auth, email);
-      return signInMethods.length > 0; // Si hay métodos de inicio de sesión, el correo existe
+      return signInMethods.length > 0;
     } catch (error) {
-      return false; // Si hay error, asumimos que el correo no existe
+      return false;
     }
   }
 

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class EditarPerfilComponent {
   @Input() userData: any = { name: '', phone: '', farmName: '', birthDate: '' };
   @Output() cerrar = new EventEmitter<void>();
-  errorMessage: string = ''; // Mensaje de error general
+  errorMessage: string = '';
 
   constructor(private firestore: Firestore, private auth: Auth) {}
 
@@ -51,7 +51,7 @@ export class EditarPerfilComponent {
       await updateProfile(user, { displayName: this.userData.name });
 
       alert('✅ Perfil guardado correctamente.');
-      this.errorMessage = ''; // Limpiar mensaje de error
+      this.errorMessage = '';
       this.cerrar.emit();
     } catch (error) {
       console.error('❌ Error al actualizar perfil:', error);

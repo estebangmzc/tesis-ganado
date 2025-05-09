@@ -44,12 +44,12 @@ import { firebaseProviders } from './firebase.config';
     RouterModule.forRoot(routes),
     BrowserAnimationsModule, 
     ToastrModule.forRoot({
-      positionClass: 'toast-top-right', // 📍 Ubicación en la parte superior derecha
-      timeOut: 3000, // ⏳ Duración de 3 segundos
-      closeButton: true, // ❌ Botón de cierre
-      progressBar: true, // 📶 Barra de progreso
-      preventDuplicates: true, // 🔄 Evita mensajes repetidos
-      toastClass: 'custom-toast' // 🎨 Aplica un estilo personalizado
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      closeButton: true,
+      progressBar: true,
+      preventDuplicates: true,
+      toastClass: 'custom-toast' 
     })
   ],
   providers: [

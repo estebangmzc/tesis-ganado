@@ -56,8 +56,8 @@ export class MainComponent implements OnInit, OnDestroy {
     private ganadoService: GanadoService, 
     private pdfService: PdfService,  
     private excelService: ExcelService,
-    private authService: AuthService, // Servicio de autenticación
-    private router: Router // Para la navegación
+    private authService: AuthService,
+    private router: Router
   ) { 
     this.ganado$ = this.ganadoService.obtenerGanado();
   }  
@@ -67,7 +67,7 @@ export class MainComponent implements OnInit, OnDestroy {
       this.listaGanado = ganadoList;
       this.ganadoFiltrado = [...ganadoList];
       this.totalValor = ganadoList.reduce((total, vaca) => total + vaca.totalPrecio, 0);
-      this.totalVacas = ganadoList.length; // Agrega esta línea
+      this.totalVacas = ganadoList.length;
     });
   }
   
@@ -80,7 +80,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.nuevoGanado.precioPorKilo = Number(this.nuevoGanado.precioPorKilo);
     this.nuevoGanado.edad = Number(this.nuevoGanado.edad);
 
-    // Errores que solo se muestran en la consola
     if (isNaN(this.nuevoGanado.peso) || this.nuevoGanado.peso <= 0) {
         console.error("❌ Error: El peso debe ser un número mayor a 0.");
         return;
@@ -94,7 +93,6 @@ export class MainComponent implements OnInit, OnDestroy {
         return;
     }
 
-    // ✅ Único error que se muestra en la interfaz con Swal.fire
     if (this.nuevoGanado.sexo === "Macho" && this.nuevoGanado.proposito === "Leche") {
         Swal.fire({
             icon: "error",
@@ -105,7 +103,6 @@ export class MainComponent implements OnInit, OnDestroy {
         return;
     }
 
-    // Cálculo del precio total
     this.nuevoGanado.totalPrecio = this.nuevoGanado.peso * this.nuevoGanado.precioPorKilo;
 
     this.ganadoService.agregarGanado(this.nuevoGanado)
@@ -154,25 +151,25 @@ export class MainComponent implements OnInit, OnDestroy {
 
   verificarOtraRaza(event: any) {
     if (event.target.value === 'Otra') {
-      this.mostrarModal = true; // Muestra el modal si selecciona "Otra"
+      this.mostrarModal = true;
     }
   }  
 
   guardarRaza() {
     if (this.otraRaza.trim() !== '') {
-      this.nuevoGanado.raza = this.otraRaza; // Asigna la nueva raza al modelo
-      this.mostrarModal = false; // Cierra el modal
+      this.nuevoGanado.raza = this.otraRaza;
+      this.mostrarModal = false;
     }
   }   
 
   cancelarRaza() {
-    this.nuevoGanado.raza = ''; // Deja el campo vacío si cancelan
+    this.nuevoGanado.raza = '';
     this.cerrarModal();
   }
 
   cerrarModal() {
     this.mostrarModal = false;
-    this.otraRaza = ''; // Limpiar el input del modal
+    this.otraRaza = '';
   }
 
   eliminarGanado(id: string) {
