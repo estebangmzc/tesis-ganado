@@ -177,3 +177,64 @@
   text-shadow: 0 0 8px rgba(109, 174, 252, 0.8); /* Resplandor sutil */
   text-decoration: none;
 }
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%; /* El contenedor será más pequeño */
+    padding: 30px; /* Reducimos el padding */
+  }
+
+  .login-container h2 {
+    font-size: 24px; /* Título más pequeño */
+    margin-bottom: 15px; /* Menos espacio debajo */
+  }
+
+  .login-container input {
+    font-size: 16px; /* Ajustamos el tamaño de la fuente */
+    padding: 10px; /* Menos padding en los inputs */
+  }
+
+  .login-container button {
+    font-size: 18px; /* Botón más pequeño */
+    padding: 12px; /* Menos padding */
+  }
+
+  /* Cambios en el texto de registro y enlaces */
+  .register-text {
+    font-size: 12px; /* Texto más pequeño */
+    margin-top: 20px; /* Menos espacio superior */
+  }
+
+  .register-link {
+    font-size: 14px; /* Enlace de registro más pequeño */
+  }
+
+  /* Para la barra de notificaciones */
+  .success-snackbar, .error-snackbar {
+    font-size: 12px; /* Texto más pequeño en las notificaciones */
+  }
+}
+
+/* Media query para pantallas muy pequeñas (móviles en modo retrato) */
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%; /* Contenedor aún más pequeño en pantallas muy pequeñas */
+    padding: 20px; /* Reducir aún más el padding */
+  }
+
+  .login-container h2 {
+    font-size: 20px; /* Título aún más pequeño */
+    margin-bottom: 10px;
+  }
+
+  .login-container input {
+    font-size: 14px; /* Texto de input más pequeño */
+    padding: 8px; /* Reducción de padding */
+  }
+
+  .login-container button {
+    font-size: 16px; /* Botón aún más pequeño */
+    padding: 10px; /* Reducido */
+  }
+}

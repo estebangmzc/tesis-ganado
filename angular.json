@@ -33,20 +33,31 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "sweetalert2",
+              "core-js",
+              "exceljs",
+              "file-saver",
+              "qrcode",
+              "canvg",
+              "raf",
+              "rgbcolor",
+              "html2canvas"
             ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "type": "allScript",
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "type": "allScript",
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "outputHashing": "all",

@@ -182,7 +182,7 @@
 
     /* Ajustes para los iconos de perfil */
     .menu-right {
-        display: none; /* Oculta los iconos */
+        display: none; /* Oculta los iconos cuando el menú no está desplegado */
     }
 
     .perfil-container {
@@ -201,7 +201,7 @@
     }
 
     .menu.open .menu-right {
-        display: flex;
+        display: flex; /* Mostrar los iconos cuando el menú está abierto */
     }
 }
 
@@ -229,11 +229,36 @@
     .menu button {
         font-size: 14px;
         padding: 10px;
-        width: 100%; /* Botones ocupan todo el ancho */
+        width: 100%; /* Los botones ocupan todo el ancho */
     }
 
     .perfil-container {
         width: 35px;
         height: 35px;
+    }
+
+    /* Ajuste para la distribución de los botones circulares */
+    .menu-right {
+        display: none; /* Oculta los botones cuando el menú no está desplegado */
+        justify-content: space-between; /* Asegura que los botones estén separados */
+        gap: 20px; /* Espacio entre los botones */
+        width: 100%; /* Ocupa todo el ancho */
+        margin-top: 10px; /* Da algo de margen para separar los botones del contenido superior */
+    }
+
+    /* Ajuste individual para los botones circulares */
+    .perfil-container, .terms-container { 
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 2px solid #ddd;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Cuando el menú está abierto */
+    .menu.open .menu-right {
+        display: flex; /* Mostrar los botones cuando el menú está desplegado */
     }
 }

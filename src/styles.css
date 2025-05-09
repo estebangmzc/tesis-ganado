@@ -434,6 +434,26 @@ button:disabled,
   }
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Reducir el tamaño de los botones aún más en dispositivos móviles */
+  .btn {
+    font-size: 10px; /* Tamaño de fuente más pequeño */
+    padding: 5px 10px; /* Relleno más ajustado */
+  }
+
+  /* Ajustar el espaciado entre los botones */
+  .list-group-item .btn {
+    margin: 1px; /* Espaciado más pequeño entre botones */
+  }
+
+  /* Ajustar el tamaño de los iconos dentro de los botones */
+  .list-group-item .btn img {
+    width: 14px; /* Iconos más pequeños */
+    height: 14px;
+  }
+}
+
 #video-fondo {
   position: fixed;
   top: 0;

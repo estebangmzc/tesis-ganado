@@ -22,7 +22,7 @@ export class BibliotecaComponent {
       titulo: 'Holstein',
       descripcion: 'Raza lechera de alta productividad.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Holstein.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825473/Holstein_ene5hn.jpg',
       contenidoExtendido: `
     La Holstein es una raza bovina originaria de los Países Bajos, reconocida mundialmente por su elevada producción de leche. 
     Su característico pelaje blanco con manchas negras (o rojas en la variedad Red Holstein) y su gran tamaño la hacen fácilmente identificable.
@@ -51,7 +51,7 @@ export class BibliotecaComponent {
       titulo: 'Brahman',
       descripcion: 'Raza resistente al calor y enfermedades.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Brahman.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825709/Brahman_x0h5fl.jpg',
       contenidoExtendido: `
         La Brahman es una raza cebuina originaria de la India, muy valorada por su resistencia al calor extremo, humedad y parásitos. 
         Esta adaptabilidad la ha convertido en una de las razas más utilizadas en cruzamientos en América Latina, especialmente en zonas tropicales.
@@ -80,7 +80,7 @@ export class BibliotecaComponent {
       titulo: 'Normando',
       descripcion: 'Raza doble propósito: leche y carne.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Normando.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825806/Normando_xkopcu.jpg',
       contenidoExtendido: `
         La Normando es una raza bovina originaria de Normandía, Francia, reconocida por su doble propósito: excelente producción de leche y carne de alta calidad. 
         Es muy apreciada en países como Colombia, especialmente en regiones montañosas y de clima templado, gracias a su gran capacidad de adaptación.
@@ -112,7 +112,7 @@ export class BibliotecaComponent {
       titulo: 'Gyr',
       descripcion: 'Raza lechera tropical.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Gyr.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825855/Gyr_rccpt7.jpg',
       contenidoExtendido: `
         El Gyr es una raza bovina originaria de la India, reconocida por su destacada producción lechera en climas tropicales. 
         Pertenece al grupo de las razas cebuinas y es valorada por su rusticidad, longevidad y capacidad para producir leche incluso bajo condiciones de calor extremo y pastoreo extensivo.
@@ -144,7 +144,7 @@ export class BibliotecaComponent {
       titulo: 'Angus',
       descripcion: 'Raza de carne muy reconocida.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Angus.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825898/Angus_wimrvn.jpg',
       contenidoExtendido: `
         La Angus es una raza bovina originaria de Escocia, reconocida mundialmente por su excepcional calidad de carne. 
         Se caracteriza por su pelaje negro o rojo (Red Angus), su ausencia de cuernos (es mocha por naturaleza) y su temperamento dócil, lo que facilita su manejo.
@@ -177,7 +177,7 @@ export class BibliotecaComponent {
       titulo: 'Jersey',
       descripcion: 'Raza lechera de alta calidad.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Jersey.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825942/Jersey_pkhkl9.jpg',
       contenidoExtendido: `
         La Jersey es una raza bovina originaria de la isla de Jersey, en el Canal de la Mancha. Es reconocida por su tamaño pequeño, su pelaje color café claro (a veces con tonos más oscuros), y su carácter muy dócil y manejable.
     
@@ -207,7 +207,7 @@ export class BibliotecaComponent {
       titulo: 'Cebú',
       descripcion: 'Raza tropical de gran resistencia.',
       categoria: 'Razas',
-      imagen: 'assets/fotos/Cebú.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746825975/Ceb%C3%BA_okyoho.jpg',
       contenidoExtendido: `
         El Cebú es una raza bovina originaria del sur de Asia, particularmente de la India. Es una de las razas más utilizadas en regiones tropicales debido a su alta resistencia al calor, a enfermedades y a parásitos externos como las garrapatas.
     
@@ -236,7 +236,7 @@ export class BibliotecaComponent {
       titulo: 'Brucelosis',
       descripcion: 'Enfermedad infecciosa que afecta a los animales y humanos.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Brucelosis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826020/Brucelosis_b5kipu.jpg',
       contenidoExtendido: `
         La brucelosis es una enfermedad zoonótica, es decir, puede ser transmitida de los animales al ser humano. Afecta principalmente a vacas, causando abortos, esterilidad y otros problemas reproductivos. Los animales infectados excretan la bacteria en su leche, saliva y orina, lo que la convierte en una enfermedad altamente contagiosa.
     
@@ -261,7 +261,7 @@ export class BibliotecaComponent {
       titulo: 'Tuberculosis Bovina',
       descripcion: 'Enfermedad respiratoria que afecta principalmente los pulmones.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Tuberculosis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826053/Tuberculosis_eqm7ia.jpg',
       contenidoExtendido: `
         La tuberculosis bovina es una enfermedad crónica que afecta los pulmones de las vacas y otros animales. Se transmite principalmente a través del aire, por lo que la proximidad de los animales infectados en espacios cerrados aumenta el riesgo de contagio.
     
@@ -285,7 +285,7 @@ export class BibliotecaComponent {
       titulo: 'Fiebre Aftosa',
       descripcion: 'Enfermedad viral altamente contagiosa que afecta a rumiantes.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Aftosa.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826093/Aftosa_d1nssg.jpg',
       contenidoExtendido: `
         La fiebre aftosa es una enfermedad viral que afecta a los bovinos y otros animales de pezuña hendida. Es altamente contagiosa y puede provocar fiebre alta, úlceras en la boca y las pezuñas, y dificultades para alimentarse.
     
@@ -309,7 +309,7 @@ export class BibliotecaComponent {
       titulo: 'Parasitosis Interna',
       descripcion: 'Infestación de parásitos internos que afectan el sistema digestivo.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Parasitosis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826137/Parasitosis_zjcijy.jpg',
       contenidoExtendido: `
         Las parasitosis internas, como la tenia y los gusanos redondos, son comunes en los bovinos. Estos parásitos afectan el sistema digestivo, reduciendo la capacidad de absorción de nutrientes, lo que puede afectar el crecimiento y la productividad del ganado.
     
@@ -334,7 +334,7 @@ export class BibliotecaComponent {
       titulo: 'Leptospirosis',
       descripcion: 'Infección bacteriana transmitida por la orina de animales infectados.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Leptospirosis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826181/Leptospirosis_cddsfj.jpg',
       contenidoExtendido: `
         La leptospirosis es una enfermedad bacteriana que puede afectar a las vacas y otros animales. Se transmite principalmente a través de la orina de animales infectados y puede causar fiebre, abortos, y daños en los órganos internos como los riñones y el hígado.
     
@@ -358,7 +358,7 @@ export class BibliotecaComponent {
       titulo: 'Mastitis',
       descripcion: 'Inflamación de la glándula mamaria, común en vacas lecheras.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Mastitis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826230/Mastitis_jubzsu.jpg',
       contenidoExtendido: `
         La mastitis es una inflamación de la glándula mamaria, generalmente causada por infecciones bacterianas. Afecta la producción de leche de las vacas y puede provocar un descenso en la calidad de la misma, haciéndola inapropiada para el consumo.
     
@@ -383,7 +383,7 @@ export class BibliotecaComponent {
       titulo: 'Fascioliasis',
       descripcion: 'Enfermedad causada por parásitos hepáticos que afectan al hígado.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Fascioliasis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826289/Fascioliasis_styycn.jpg',
       contenidoExtendido: `
         La fascioliasis es causada por un parásito llamado *Fasciola hepatica*, que afecta el hígado de los bovinos. Los animales infectados sufren daños en el hígado, lo que puede afectar su salud general y su capacidad para producir carne o leche.
     
@@ -407,7 +407,7 @@ export class BibliotecaComponent {
       titulo: 'Vibriosis',
       descripcion: 'Infección bacteriana que afecta el sistema reproductivo de las vacas.',
       categoria: 'Enfermedades',
-      imagen: 'assets/fotos/Vibriosis.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826334/Vibriosis_p5w0ba.jpg',
       contenidoExtendido: `
         La vibriosis es una infección bacteriana que afecta el aparato reproductor de las vacas. Provoca infertilidad, abortos y problemas reproductivos. Esta enfermedad es común en muchas regiones tropicales, incluyendo Colombia, donde las condiciones favorecen su transmisión.
     
@@ -430,7 +430,7 @@ export class BibliotecaComponent {
       titulo: 'Forraje de Pasto',
       descripcion: 'El pasto es una fuente de alimentación básica para el ganado.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Forraje.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826412/Forraje_xc2qrx.jpg',
       contenidoExtendido: `
         El pasto es uno de los alimentos más comunes para el ganado. Es rico en fibra y ayuda a la digestión. El pasto debe ser de buena calidad, libre de pesticidas y debe proporcionarse en grandes cantidades para mantener el ganado saludable. El pastoreo rotacional es una técnica eficaz.
     
@@ -455,7 +455,7 @@ export class BibliotecaComponent {
       titulo: 'Heno',
       descripcion: 'El heno es pasto seco y es esencial para la alimentación durante el invierno.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Heno.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826454/Heno_lggqgx.jpg',
       contenidoExtendido: `
         El heno es una fuente importante de fibra, especialmente durante los meses más fríos. Se obtiene cortando pastos y dejándolos secar al sol. Es una excelente alternativa cuando el pasto fresco no está disponible. Asegúrese de que el heno sea de buena calidad y no esté mohoso.
     
@@ -480,7 +480,7 @@ export class BibliotecaComponent {
       titulo: 'Suplementos Minerales',
       descripcion: 'Los suplementos minerales son necesarios para complementar la dieta.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Suplementos.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826486/Suplementos_wboqky.jpg',
       contenidoExtendido: `
         Los suplementos minerales son esenciales para el ganado, especialmente en áreas donde los pastos no proporcionan todos los nutrientes necesarios. Estos suplementos ayudan a mejorar la salud general del ganado, la reproducción y la producción de leche. Los minerales más comunes incluyen calcio, fósforo y magnesio.
     
@@ -505,7 +505,7 @@ export class BibliotecaComponent {
       titulo: 'Concentrados',
       descripcion: 'Los concentrados son alimentos energéticos como los granos.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Concentrados.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826528/Concentrados_av33it.jpg',
       contenidoExtendido: `
         Los concentrados, como el maíz, la avena y la cebada, son ricos en energía. Se utilizan para complementar la dieta del ganado y mejorar la ganancia de peso y la producción de leche. Sin embargo, deben administrarse con moderación para evitar problemas digestivos.
     
@@ -530,7 +530,7 @@ export class BibliotecaComponent {
       titulo: 'Agua',
       descripcion: 'El agua es un recurso vital para la salud y el bienestar del ganado.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Agua.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826551/Agua_osusq1.jpg',
       contenidoExtendido: `
         El agua es uno de los recursos más importantes para el ganado, ya que es esencial para mantener las funciones corporales. El agua es necesaria para la digestión, la circulación, la regulación de la temperatura y la producción de leche. Asegúrese de que el ganado siempre tenga acceso a agua limpia y fresca.
     
@@ -556,7 +556,7 @@ export class BibliotecaComponent {
       titulo: 'Sorgo Forrajero',
       descripcion: 'El sorgo es una planta resistente y nutritiva para el ganado.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Sorgo.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826595/Sorgo_xssc1e.jpg',
       contenidoExtendido: `
         El sorgo forrajero es una excelente alternativa al pasto, especialmente en áreas donde el pasto es escaso o en períodos de sequía. Es resistente a las condiciones climáticas adversas y tiene un alto contenido de fibra, lo que favorece la digestión de los animales.
     
@@ -581,7 +581,7 @@ export class BibliotecaComponent {
       titulo: 'Silaje de Maíz',
       descripcion: 'Alimento fermentado que se obtiene del maíz picado.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Silaje.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826633/Silaje_hpvjmg.jpg',
       contenidoExtendido: `
         El silaje de maíz es un forraje fermentado que se obtiene al picar y almacenar el maíz en condiciones anaeróbicas (sin oxígeno). Este tipo de alimentación es especialmente útil durante los meses de invierno o cuando los pastos frescos no están disponibles.
     
@@ -606,7 +606,7 @@ export class BibliotecaComponent {
       titulo: 'Alfalfa',
       descripcion: 'Planta leguminosa rica en proteína, ideal para vacas lecheras.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Alfalfa.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826673/Alfalfa_d6iyxy.jpg',
       contenidoExtendido: `
         La alfalfa es una planta leguminosa que aporta una gran cantidad de proteínas y minerales. Es ideal para vacas lecheras y otros animales en crecimiento debido a su alto contenido de nutrientes esenciales.
     
@@ -631,7 +631,7 @@ export class BibliotecaComponent {
       titulo: 'Melaza',
       descripcion: 'Subproducto del azúcar, utilizado como fuente de energía.',
       categoria: 'Alimentación',
-      imagen: 'assets/fotos/Melaza.png',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826703/Melaza_uyimru.png',
       contenidoExtendido: `
         La melaza es un subproducto de la producción de azúcar que es utilizado como suplemento alimenticio en el ganado. Aporta una gran cantidad de energía rápida y puede mejorar la palatabilidad de la dieta.
     
@@ -656,7 +656,7 @@ export class BibliotecaComponent {
       titulo: 'Ciclo Reproductivo del Ganado',
       descripcion: 'Comprender el ciclo reproductivo es clave para mejorar la eficiencia de la cría.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Ciclo.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826743/Ciclo_wtj3aw.jpg',
       contenidoExtendido: `
         El ciclo reproductivo del ganado bovino incluye etapas como el celo, la inseminación, la gestación y el parto. Identificar correctamente cada etapa permite optimizar los tiempos de reproducción y aumentar la tasa de concepción.
     
@@ -682,7 +682,7 @@ export class BibliotecaComponent {
       titulo: 'Inseminación Artificial',
       descripcion: 'Una técnica moderna que mejora la calidad genética del ganado.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Inseminación.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826768/Inseminaci%C3%B3n_m6nsjx.jpg',
       contenidoExtendido: `
         La inseminación artificial (IA) consiste en depositar semen de un toro genéticamente seleccionado en el aparato reproductor de la vaca sin necesidad de monta natural. Es una técnica segura y efectiva que permite el mejoramiento genético.
     
@@ -708,7 +708,7 @@ export class BibliotecaComponent {
       titulo: 'Manejo de la Gestación',
       descripcion: 'Cuidados durante la gestación para asegurar una cría saludable.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Gestación.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826793/Gestaci%C3%B3n_ewwcst.jpg',
       contenidoExtendido: `
         La gestación del ganado bovino dura aproximadamente 9 meses. Durante este periodo es fundamental cuidar la salud y nutrición de la vaca para asegurar un desarrollo fetal adecuado.
     
@@ -734,7 +734,7 @@ export class BibliotecaComponent {
       titulo: 'Parto y Cuidados Neonatales',
       descripcion: 'La atención al parto es esencial para la salud de la madre y de la cría.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Parto.jpg',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826817/Parto_tskquy.jpg',
       contenidoExtendido: `
         El parto debe ser monitoreado para intervenir si hay complicaciones. Una vez nacido, el ternero debe recibir cuidados inmediatos como limpieza, corte del cordón umbilical y suministro de calostro.
     
@@ -760,7 +760,7 @@ export class BibliotecaComponent {
       titulo: 'Mejoramiento Genético',
       descripcion: 'Mejorar la genética del ganado mediante selección y cría.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Mejoramiento.png',
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826851/Mejoramiento_dd4tyu.png',
       contenidoExtendido: `
         El mejoramiento genético consiste en seleccionar animales con características superiores (producción, salud, conformación) para la reproducción, elevando así el nivel general del hato.
     
@@ -786,7 +786,7 @@ export class BibliotecaComponent {
       titulo: 'Diagnóstico de Preñez',
       descripcion: 'Detectar a tiempo la preñez optimiza la planificación del hato.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Diagnóstico.png', // Puedes usar una imagen representativa
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826890/Diagn%C3%B3stico_mtmg6x.png', // Puedes usar una imagen representativa
       contenidoExtendido: `
         El diagnóstico de preñez permite confirmar si una vaca está gestando y ayuda a monitorear la eficiencia reproductiva del rebaño. Puede realizarse mediante palpación rectal, ecografía o análisis de laboratorio.
     
@@ -812,7 +812,7 @@ export class BibliotecaComponent {
       titulo: 'Protocolo de Sincronización de Celo',
       descripcion: 'Facilita el manejo del hato y la planificación de inseminaciones.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Protocolo.jpg', // Imagen sugerida: vacas con collares marcadores o personal aplicando hormona
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826917/Protocolo_ybmmfl.jpg', // Imagen sugerida: vacas con collares marcadores o personal aplicando hormona
       contenidoExtendido: `
         La sincronización del celo consiste en administrar hormonas para controlar el ciclo reproductivo de las vacas y así programar de forma precisa el momento de la inseminación.
     
@@ -838,7 +838,7 @@ export class BibliotecaComponent {
       titulo: 'Cría y Destete',
       descripcion: 'Fase crucial para el desarrollo saludable del ternero.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Destete.jpg', // Imagen de un ternero mamando o junto a la madre
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826942/Destete_gbu0fz.jpg', // Imagen de un ternero mamando o junto a la madre
       contenidoExtendido: `
         La etapa de cría incluye desde el nacimiento hasta el destete del ternero. Durante este tiempo es fundamental asegurar una alimentación adecuada, control de enfermedades y un entorno libre de estrés.
     
@@ -864,7 +864,7 @@ export class BibliotecaComponent {
       titulo: 'Manejo de Toros Reproductores',
       descripcion: 'La salud y genética del toro afectan a todo el hato.',
       categoria: 'Reproducción',
-      imagen: 'assets/fotos/Reproductores.jpg', // Imagen sugerida: toro de raza pura, en pasto o con sementales
+      imagen: 'https://res.cloudinary.com/dquzgbaxi/image/upload/v1746826969/Reproductores_hnxvib.jpg', // Imagen sugerida: toro de raza pura, en pasto o con sementales
       contenidoExtendido: `
         Los toros reproductores son responsables de gran parte de la genética del hato. Su manejo adecuado incluye evaluaciones sanitarias, físicas y de fertilidad.
     
